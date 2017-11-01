@@ -1,7 +1,5 @@
 <div class="content">
 <form action="query-registration.php" method="post">
-  <label>Email:</label>    
-  <input type="text" name="email"> <br>
   
   <label>Login:</label>    
   <input type="text" name="login"> <br>
@@ -16,7 +14,11 @@
   <input type="text" name="surname">  <br>
   
   <label>Birthday:</label>       
-  <input type="date" name="bithday"><br> 
+  <input type="date" name="birthday"><br> 
+   
+  <label>Email:</label>    
+  <input type="text" name="email"> <br>
+  
   <input type="submit" name="submit" value="Register">
 </form>
 </div>
