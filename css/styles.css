@@ -41,29 +41,31 @@
 }
 
 #auth_block a{
-    display: block;
+    display: inline;   
+    float: right;    /*         */
     padding: 10px;
     border-radius: 10px;
-    color: #fff;
+    color: #fff;  /**/
     width: 110px;
     height: 30px;
     text-decoration: none;
 }
 
 #auth_block a:hover{
-    text-decoration: underline;
+    text-decoration: underline;   
 }
 
-#link_register{
+/*#link_register, #link_info{
     float: left;
 }
 
 #link_auth, #link_logout{
     float: right;
-}
+}         */
 
-#link_register a{
-    background: #54d854;
+#link_register a, #link_info a{
+    background: #54d854; 
+    text-align: center;
 }
 
 #link_auth a, #link_logout a{
