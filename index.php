@@ -1,3 +1,9 @@
+
+<?php
+/* TODO */
+/* NAPSAT ZAKLADNI INFORMACE O FIRME */
+?>
+
 <?php
     require_once("header.php");
 ?>

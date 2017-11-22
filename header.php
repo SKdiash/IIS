@@ -1,5 +1,12 @@
+
 <?php
-    session_start();
+/* TODO */
+/* V CSS RESIT PROBLE S NAVIGACE!!! */
+/* NEBO ZMENIT DIV NA LI_UL */
+?>
+
+<?php 
+    session_start();  
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +14,7 @@
 <head>
     <title>Vector</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -73,25 +80,36 @@
 <div id="header">
     <h2>Just a header</h2>
 
-    <a href="index.php">Main</a>
+    
 
-    <div id="auth_block">
+    <div id="auth_block"> 
+            <div id="main">
+                <a href="index.php">Main</a>
+            </div>
     <?php
         // Test zda uzivvatel je prihlasen
         if(!isset($_SESSION['email']) && !isset($_SESSION['password'])){
             // Pokud ne, tak "kreslime" tlacitka Registrace a Prihlaseni
-    ?>
+    ?>      
+            
+            <div id="link_info">
+                <a href="main_course_info.php">Information about courses</a>
+            </div>
+            
             <div id="link_register">
                 <a href="form_register.php">Registration</a>
             </div>
-
+            
             <div id="link_auth">
                 <a href="form_auth.php">Log in</a>
             </div>
     <?php
         }else{
             // Pokud ano, tak "kreslime" tlacitka Vyhod
-    ?>
+    ?>      
+            <div id="person_area">
+                <a href="person_area.php">Person area</a>
+            </div>
             <div id="link_logout">
                 <a href="logout.php">Exit</a>
             </div>
@@ -101,4 +119,3 @@
     </div>
      <div class="clear"></div>
 </div>
-

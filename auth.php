@@ -1,3 +1,9 @@
+
+<?php
+/* TODO */
+/* nic */
+?>
+
 <?php
     session_start();
 
@@ -99,7 +105,7 @@
 
             if(!$result_query_select){
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >Ошибка запроса на выборке пользователя из БД</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >ERROR while searching user</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");

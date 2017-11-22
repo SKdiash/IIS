@@ -1,3 +1,9 @@
+
+<?php
+/* TODO */
+/* zatim nic */
+?>
+
 <?php
     require_once("header.php");
 ?>
@@ -63,7 +69,11 @@
                     <span id="valid_password_message" class="mesage_error"></span>
                 </td>
             </tr>
-
+            
+            <tr>
+                    <input type="checkbox" name="subcheck">Firma<br>
+            </tr>
+            
             <tr>
                 <td colspan="2">
                     <input type="submit" name="btn_submit_register" value="Registrate!" />

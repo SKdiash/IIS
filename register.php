@@ -1,3 +1,9 @@
+
+<?php
+/* TODO */
+/* zatim nic */
+?>
+
 <?php
     session_start();
 
@@ -192,10 +198,12 @@
 
                 exit();
             }
+            
+            $subcheck = (isset($_POST['subcheck'])) ? 1 : 0;
 
 
             // Dotaz na pridani do database
-            $result_query_insert = $mysqli->query("INSERT INTO `users` (first_name, last_name, email, password) VALUES ('".$first_name."', '".$last_name."', '".$email."', '".$password."')");
+            $result_query_insert = $mysqli->query("INSERT INTO `users` (first_name, last_name, email, password, firm) VALUES ('".$first_name."', '".$last_name."', '".$email."', '".$password."', '".$subcheck."')");
 
             if(!$result_query_insert){
                 // Pokud se nastala chyba - ukladame to do promenne
