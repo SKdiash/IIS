@@ -9,35 +9,9 @@
 ?>
 
 <div id="content">
-    <h2>Just a content. Nic vic.</h2>
-    <p>
-    Český jazyk neboli čeština je západoslovanský jazyk, nejbližší slovenštině, poté polštině a lužické srbštině. 
-    Patří mezi slovanské jazyky
-    
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h2>Vítáme Vás</h2>
+    <p>na internetových stránkách Vzdělávacího střediska v Brně. Vzdělávací středisko je soukromou vzdělávací agenturou. V oblasti vzdělávání působí již od r. 2001, provozuje ho fyzická osoba Mgr. Jitka Okounová ve spolupráci s odbornými lektory a pedagogickými pracovníky.</p>
+ <p>Nabízíme služby v oblasti vzdělávání, zajišťujeme profesní rozvoj, rozšiřování znalostí a dovedností pracovníků firem. Vzdělávací programy jsou určeny firmám i jednotlivcům. Připravujeme semináře, kvalifikační a rekvalifikační kurzy. Nabídka kurzů je orientována do oblasti informačních technologií.</p>
 </div>
 
 <?php

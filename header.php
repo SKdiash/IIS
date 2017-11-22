@@ -80,9 +80,9 @@ ini_set("default_charset", "UTF-8");
 <body>
 
 <div id="header">
-    <h2>Just a header</h2>
-
-    
+  
+    <h2>Softwarové kurzy</h2>
+    <a href="index.php"><img src="pc.png" href="index.php" width="50" height="50" alt="pc"></a>
 
     <div id="auth_block"> 
             <div id="main">
@@ -95,15 +95,15 @@ ini_set("default_charset", "UTF-8");
     ?>      
             
             <div id="link_info">
-                <a href="main_course_info.php">Information about courses</a>
+                <a href="kurs_info.php">Informace o kurzech</a>
             </div>
             
             <div id="link_register">
-                <a href="form_register.php">Registration</a>
+                <a href="form_register.php">Registrace</a>
             </div>
             
             <div id="link_auth">
-                <a href="form_auth.php">Log in</a>
+                <a href="form_auth.php">Přihlášení</a>
             </div>
     <?php
         }else{
@@ -113,7 +113,7 @@ ini_set("default_charset", "UTF-8");
                 <a href="person_area.php">Person area</a>
             </div>
             <div id="link_logout">
-                <a href="logout.php">Exit</a>
+                <a href="logout.php">Odhlášení</a>
             </div>
     <?php
         }
