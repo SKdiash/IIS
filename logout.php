@@ -12,5 +12,5 @@
     
     // Vratime se na tu stranky, se ktere uzivatel zmacknoul "Exit"
     header("HTTP/1.1 301 Moved Permanently");
-    header("Location: ".$_SERVER["HTTP_REFERER"]);
+    header("Location: index.php");
 ?>
