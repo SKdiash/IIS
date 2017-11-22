@@ -36,26 +36,26 @@
     if(!isset($_SESSION["email"]) && !isset($_SESSION["password"])){
 ?>
 <div id="form_register">
-    <h2>Registration form</h2>
+    <h2>Registrační formulář</h2>
 
     <form action="register.php" method="post" name="form_register" >
         <table>
             <tr>
-                <td> Name: </td>
+                <td> Jméno: </td>
                 <td>
                     <input type="text" name="first_name" required="required"/>
                 </td>
             </tr>
 
             <tr>
-                <td> Last Name: </td>
+                <td> Příjmení: </td>
                 <td>
                     <input type="text" name="last_name" required="required" />
                 </td>
             </tr>
 
             <tr>
-                <td> Email: </td>
+                <td> E-mail: </td>
                 <td>
                     <input type="email" name="email" required="required" /><br />
                     <span id="valid_email_message" class="mesage_error"></span>
@@ -63,7 +63,7 @@
             </tr>
 
             <tr>
-                <td> Password: </td>
+                <td> Heslo: </td>
                 <td>
                     <input type="password" name="password" placeholder="min. 6" required="required" /><br />
                     <span id="valid_password_message" class="mesage_error"></span>
@@ -76,7 +76,7 @@
             
             <tr>
                 <td colspan="2">
-                    <input type="submit" name="btn_submit_register" value="Registrate!" />
+                    <input type="submit" name="btn_submit_register" value="Registrovat!" />
                 </td>
             </tr>
         </table>

@@ -37,12 +37,12 @@
 ?>
 
 <div id="form_auth">
-    <h2>Authorization</h2>
+    <h2>Přihlášení</h2>
     <form action="auth.php" method="post" name="form_auth" >
         <table>
 
             <tr>
-                <td> Email: </td>
+                <td> E-mail: </td>
                 <td>
                     <input type="email" name="email" required="required" /><br />
                     <span id="valid_email_message" class="mesage_error"></span>
@@ -50,7 +50,7 @@
             </tr>
 
             <tr>
-                <td> Password: </td>
+                <td> Heslo: </td>
                 <td>
                     <input type="password" name="password" placeholder="min. 6" required="required" /><br />
                     <span id="valid_password_message" class="mesage_error"></span>

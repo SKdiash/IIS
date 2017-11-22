@@ -86,7 +86,7 @@ ini_set("default_charset", "UTF-8");
 
     <div id="auth_block"> 
             <div id="main">
-                <a href="index.php">Main</a>
+                <a href="index.php">Hlavní stránka</a>
             </div>
     <?php
         // Test zda uzivvatel je prihlasen
@@ -110,7 +110,7 @@ ini_set("default_charset", "UTF-8");
             // Pokud ano, tak "kreslime" tlacitka Vyhod
     ?>      
             <div id="person_area">
-                <a href="person_area.php">Person area</a>
+                <a href="person_area.php">Změny</a>
             </div>
             <div id="link_logout">
                 <a href="logout.php">Odhlášení</a>
