@@ -5,12 +5,16 @@
 ?>
 
 <?php
-    require_once("header.php");
+    require_once("header.php");   
 ?>
 
 <div id="content">
     <h2>Just a content. Nic vic.</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    <p>
+    Český jazyk neboli čeština je západoslovanský jazyk, nejbližší slovenštině, poté polštině a lužické srbštině. 
+    Patří mezi slovanské jazyky
+    
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse

@@ -3,17 +3,19 @@
 /* TODO */
 /* V CSS RESIT PROBLE S NAVIGACE!!! */
 /* NEBO ZMENIT DIV NA LI_UL */
+ini_set("default_charset", "UTF-8");
 ?>
 
 <?php 
-    session_start();  
+    session_start();           
 ?>
 
-<!DOCTYPE html>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-    <title>Vector</title>
-    <meta charset="utf-8" />
+    <title>Vector</title>    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
