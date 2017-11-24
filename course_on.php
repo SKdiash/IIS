@@ -91,55 +91,58 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probihajici kur
 
 ?>
 
-<div id="adding_course_on">
-    <h2>Pridani noveho kurzu</h2>
-
-    <form action="adding_course_on.php" method="post" name="adding_course_on" >
-        <table>
-            <tr>
-                <td> Kurz: </td>
-                <td>
-                    <select name="name_course_on" id="IDChut" required="required">
-                       <?php 
-                          
-                          $all_course = $mysqli->query("SELECT name FROM `course`");
-                          
-                          for($d = 1; $d <= ($all_course->num_rows); $d++)
-                          {
-                            $course_are = $all_course->fetch_assoc();
+<?php
+  if($user['firm'] == 3) //admin
+  { ?>
+        <div id="adding_course_on">
+            <h2>Pridani noveho kurzu</h2>
+        
+            <form action="adding_course_on.php" method="post" name="adding_course_on" >
+                <table>
+                    <tr>
+                        <td> Kurz: </td>
+                        <td>
+                            <select name="name_course_on" id="id_course" required="required">
+                               <?php 
+                                  
+                                  $all_course = $mysqli->query("SELECT name FROM `course`");
+                                  
+                                  for($d = 1; $d <= ($all_course->num_rows); $d++)
+                                  {
+                                    $course_are = $all_course->fetch_assoc();
+                                    
+                                    echo '<option value="'.$course_are['name'].'">'.$course_are['name'].'
+                                        </optionc>';
+                                  }
+                               ?>
+                            </select>
                             
-                            echo '<option value="'.$course_are['name'].'">'.$course_are['name'].'
-                                </optionc>';
-                          }
-                       ?>
-                    </select>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td> Mesto: </td>
+                        <td>
+                            <input type="text" name="city" required="required" />
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td> Datum: </td>
+                        <td>
+                            <input type="date" name="date" required="required" />
+                        </td>
+                    </tr>
                     
-                </td>
-            </tr>
-
-            <tr>
-                <td> Mesto: </td>
-                <td>
-                    <input type="text" name="city" required="required" />
-                </td>
-            </tr>
-
-            <tr>
-                <td> Datum: </td>
-                <td>
-                    <input type="date" name="date" required="required" />
-                </td>
-            </tr>
-            
-            <tr>
-                <td colspan="2">
-                    <input type="submit" name="adding_course_on" value="Pridat kurz" />
-                </td>
-            </tr>
-        </table>
-    </form>
-</div>   
- 
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" name="adding_course_on" value="Pridat kurz" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>   
+    <?php } ?>
 <?php
     require_once("footer.php");
 ?>
