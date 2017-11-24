@@ -109,12 +109,15 @@
            
            ///////////////////////
            /* SELECT!!!!! */
-           $helpful = $mysqli->query("SELECT id_course FROM 'course' WHERE name = '".$name."'");
-           $find_id = $helpful->fetch_assoc();
+           //$helpful = $mysqli->query("SELECT id_course FROM 'course' WHERE name = '".$name."'");
+           //$find_id = $helpful->fetch_assoc();
            
-           $ad_new_course = $mysqli->query("INSERT INTO `listed_course` (id_course, city, date) VALUES ('".$find_id['id_course']."', '".$city."', '".$date."')");
-           
-            if(!$ad_new_course){
+          $resC = $mysqli->query("SELECT id_course FROM `course` WHERE name = '".$name."'");
+          $idcourse = $resC->fetch_assoc();
+          
+           $result_query_insert = $mysqli->query("INSERT INTO `listed_course` ( `id_course`, `city`, `date`) VALUES ('".$idcourse['id_course']."', '".$city."', '".$date."');");
+        
+            if(!$result_query_insert){
                 // Pokud se nastala chyba - ukladame to do promenne
                 $_SESSION["error_messages"] .= "<p class='mesage_error' >Error while adding course</p>";
 
@@ -133,7 +136,7 @@
             }
 
             // Ukonceni prace
-            $ad_new_course->close();
+            $result_query_insert->close();
 
             // Zavirame database
             $mysqli->close();
