@@ -1,6 +1,30 @@
 <?php
     session_start();
+?>    
 
+<!-- Specialni block na chyby a zpravy -->
+<div class="block_for_messages">
+    <?php
+      
+        // pokud jsou nejake chyby - vypise se jake
+        if(isset($_SESSION["error_messages"]) && !empty($_SESSION["error_messages"])){
+            echo $_SESSION["error_messages"];
+
+            // Smazani chyb pri aktualizace stranky
+            unset($_SESSION["error_messages"]);
+        }
+        // pokud jsou nejake zpravy - vypise se jake
+        if(isset($_SESSION["success_messages"]) && !empty($_SESSION["success_messages"])){
+            echo $_SESSION["success_messages"];
+
+            // Smazani zprav pri aktualizace stranky
+            unset($_SESSION["success_messages"]);
+        }
+    ?>
+</div>
+
+
+<?php
     /* PRIDAT NORMALNI ERROR< POKUD UZIVATEL ZADAL SPATNE PREDCHOZI HESLO*/
     
     require_once("dbconnect.php");
@@ -26,7 +50,7 @@
 
             exit();
         }else{
-
+            
             $_SESSION["success_messages"] = "<p class='success_message'>delete complete!!!e</p>";
 
             // Vraceme uzivateli na hlavni stranku
@@ -35,7 +59,7 @@
 
             header("HTTP/1.1 301 Moved Permanently");
             header("Location: ".$address_site."/index.php");
-        }
+        } 
     }
     else{
         exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");

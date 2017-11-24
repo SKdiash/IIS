@@ -41,7 +41,7 @@
     Prijmeni: '.$row['last_name'].' <br/> </p>';
 ?>
 
-<form action="delete_user.php" method="post" name="delete_user" >
+<form action="delete_user.php" method="post" name="delete_user" onclick="return confirm('Are you sure you want to delete this item?');">
     <input type="submit" name="btn_delete_user" value="Smazat uživatele!" />
 </form>
 
