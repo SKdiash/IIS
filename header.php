@@ -11,6 +11,18 @@ ini_set("default_charset", "UTF-8");
 ?>
 
 
+<?php
+/*
+if(empty($_SESSION["access_time"]))$_SESSION["access_time"] = time();
+if ($_SESSION["access_time"] < strtotime("-10 minute")) {
+    unset($_SESSION["email"]);
+    unset($_SESSION["password"]);
+}
+$_SESSION["access_time"] = time
+();*/
+?>
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
