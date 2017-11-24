@@ -41,10 +41,14 @@
     Prijmeni: '.$row['last_name'].' <br/> </p>';
 ?>
 
-<h2>Zmena hesla</h2>
+<form action="delete_user.php" method="post" name="delete_user" >
+    <input type="submit" name="btn_delete_user" value="Smazat uživatele!" />
+</form>
+
+<h2>Změna hesla</h2>
 <form action="change_pass.php" method="post" name="change_pass" >
 <tr>
-<td> Old password:</td>
+<td> Heslo:</td>
 <td>
     <input type="password" name="old_password"/><br />
     <span id="valid_password_message" class="mesage_error"></span>
@@ -52,13 +56,13 @@
 </tr>
 
 <tr>
-<td> New password:</td>
+<td> Nové heslo:</td>
 <td>
     <input type="password" name="new_password" placeholder="min. 6"/><br />
     <span id="valid_password_message" class="mesage_error"></span>
 </td>
 <td colspan="2">
-    <input type="submit" name="btn_submit_change" value="Change password!" />
+    <input type="submit" name="btn_submit_change" value="Změnit heslo!" />
 </td>
 </tr>
 </form>
