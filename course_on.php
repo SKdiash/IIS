@@ -32,15 +32,15 @@
 <?php
 
 
-echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probihajici kurzy" id="Table2">
+echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probíhající kurzy" id="Table2">
    <tbody>
       <tr>
-         <th colspan="5" scope="colgroup">Probihajici kurzy</th>
+         <th colspan="5" scope="colgroup">Probíhající kurzy</th>
       </tr>
       <tr>
-         <th scope="col" abbr="Name">Jmeno kurzu</th>
-         <th scope="col" abbr="Tutor">Pocet ucastniku</th>
-         <th scope="col">Mesto</th>
+         <th scope="col" abbr="Name">Jméno kurzu</th>
+         <th scope="col" abbr="Tutor">Počet účastníků</th>
+         <th scope="col">Město</th>
          <th scope="col">Datum</th>
          <th scope="col">Funkce</th>
       </tr>';
@@ -73,12 +73,16 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probihajici kur
                    if($user['firm'] == 3) //admin
                    {
                       echo '<td>
+                      <form action="delete_course_on.php" method="post" name="delete_course_on">
+                          <input type="hidden"  name="course" value="'.$course_on['id'].'"" />
                           <input type="submit" name="btn_submit_delete_course" value="Odstranit kurz" />
+                        </form>
+                        
                       </td>';
                    }elseif($user['firm'] == 0) //jednotlivec
                    {   
                       echo '<td>
-                          <input type="submit" name="btn_submit_register_course" value="Prihlasit se" />
+                          <input type="submit" name="btn_submit_register_course" value="Přihlásit se" />
                       </td>';
                    }
                    else
@@ -95,7 +99,7 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probihajici kur
   if($user['firm'] == 3) //admin
   { ?>
         <div id="adding_course_on">
-            <h2>Pridani noveho kurzu</h2>
+            <h2>Přidání nového kurzu</h2>
         
             <form action="adding_course_on.php" method="post" name="adding_course_on" >
                 <table>
@@ -136,7 +140,7 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probihajici kur
                     
                     <tr>
                         <td colspan="2">
-                            <input type="submit" name="adding_course_on" value="Pridat kurz" />
+                            <input type="submit" name="adding_course_on" value="Přidat kurz" />
                         </td>
                     </tr>
                 </table>
