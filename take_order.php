@@ -28,16 +28,18 @@
 
 <?php
 
-echo '<table border="1" cellpadding="4" cellspacing="2" summary="Objednávky" id="Table4">
+echo '<table border="1" cellpadding="7" cellspacing="2" summary="Objednávky" id="Table4">
    <tbody>
       <tr>
-         <th colspan="4" scope="colgroup">Objednávky</th>
+         <th colspan="7" scope="colgroup">Objednávky</th>
       </tr>
       <tr>
       	 <th scope="col" abbr="User">Firma</th>
          <th scope="col" abbr="Name">Kurz</th>
          <th scope="col" abbr="Tutor">Město</th>
          <th scope="col">Datum</th>
+         <th scope="col">Stav</th>
+         <th colspan="2" scope="col">Odmítnout/Přijmout</th>
       </tr>';
       
     $_SESSION["error_messages"] = '';
@@ -68,6 +70,28 @@ echo '<table border="1" cellpadding="4" cellspacing="2" summary="Objednávky" id
 		    <td>'.$id_course['name'].'</td>
 		    <td>'.$order_on['city'].'</td>
 		    <td>'.$order_on['dates'].'</td>';
+    if($order_on['accept'] == 0)
+       echo '<td>Čeká</td>';
+    elseif ($order_on['accept'] == 1)
+       echo '<td>Přijmuta</td>';
+    else 
+       echo '<td>Odmítnuta</td>';
+
+   // if($order_on['accept'] == 0) //jen jedna možnost odmítnout nebo prijmout
+      echo '<td>
+          <form action="refuse_order.php" method="post" name="refuse_order">
+              <input type="hidden"  name="refuse" value="'.$order_on['id'].'"" />
+              <input type="submit" name="btn_submit_refuse_order" value="Odmítnout" />
+            </form>
+            </td>
+            <td>
+
+             <form action="accept_order.php" method="post" name="accept_order">
+              <input type="hidden"  name="accept" value="'.$order_on['id'].'"" />
+              <input type="submit" name="btn_submit_accept_order" value="Přijmout" />
+            </form>
+            </td>';
+
 		echo '</tr>';       
     }
     // pro uzivatele bych dala nejaky select from course where course.id = listed_course.id_course and listed_course.number_logged < course.max_cap
