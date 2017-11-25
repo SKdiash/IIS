@@ -51,7 +51,7 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probíhající 
 
     // Abychom dozvedeli kdo je uzivatel, potrebujeme to pozdeji
     $email = $_SESSION['email'];
-    $result = $mysqli->query("SELECT firm FROM `users` WHERE email = '".$email."'");
+    $result = $mysqli->query("SELECT * FROM `users` WHERE email = '".$email."'");
     $user = $result->fetch_assoc();
       
       
@@ -81,9 +81,28 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probíhající 
                       </td>';
                    }elseif($user['firm'] == 0) //jednotlivec
                    {   
-                      echo '<td>
-                          <input type="submit" name="btn_submit_register_course" value="Přihlásit se" />
-                      </td>';
+                   		$is_member = $mysqli->query("SELECT * FROM `member_of_course` WHERE id_l_course = '".$course_on['id']."' AND id_member = '".$user['id']."' ");
+                   		$is_mem = $is_member->fetch_assoc();
+                   		if($user['id'] == $is_mem['id_member'])
+                   		{
+                   			echo '<td>
+	                        <form action="log_out_course.php" method="post" name="log_out_course">
+	                          <input type="hidden"  name="course_log" value="'.$course_on['id'].'"" />
+	                          <input type="hidden"  name="member_log" value="'.$user['id'].'"" />
+	                          <input type="submit" name="btn_submit_logout_course" value="Odhlásit se" />
+	                        </form>
+	                        </td>';
+
+                   		}
+                   		elseif($course_on['number_logged'] < $course_all['max_capacity']){
+	                        echo '<td>
+	                        <form action="log_in_course.php" method="post" name="log_in_course">
+	                          <input type="hidden"  name="course_log" value="'.$course_on['id'].'"" />
+	                          <input type="hidden"  name="member_log" value="'.$user['id'].'"" />
+	                          <input type="submit" name="btn_submit_register_course" value="Přihlásit se" />
+	                        </form>
+	                        </td>';
+                  		}
                    }
                    else
                    {  
