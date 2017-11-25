@@ -29,15 +29,18 @@
 <?php
 
 
-echo '<table border="1" cellpadding="3" cellspacing="2" summary="Objednávky" id="Table4">
+echo '<table border="1" cellpadding="5" cellspacing="2" summary="Objednávky" id="Table4">
    <tbody>
       <tr>
-         <th colspan="3" scope="colgroup">Objednávky</th>
+         <th colspan="5" scope="colgroup">Objednávky</th>
       </tr>
       <tr>
          <th scope="col" abbr="Name">Kurz</th>
          <th scope="col" abbr="Tutor">Město</th>
          <th scope="col">Datum</th>
+         <th scope="col">Stav</th>
+         <th scope="col">Zrušit</th>
+
       </tr>';
       
     $_SESSION["error_messages"] = '';
@@ -68,7 +71,25 @@ echo '<table border="1" cellpadding="3" cellspacing="2" summary="Objednávky" id
                    <td scope="row">'.$id_course['name'].'</td>
                    <td>'.$order_on['city'].'</td>
                    <td>'.$order_on['dates'].'</td>';
-            echo '</tr>';       
+             
+
+          if($order_on['accept'] == 0)
+             echo '<td>Čeká</td>';
+          elseif ($order_on['accept'] == 1)
+             echo '<td>Přijmuta</td>';
+          else 
+             echo '<td>Odmítnuta</td>';
+
+          if($order_on['accept'] == 0) //jen pokud se ceka
+          echo '<td>
+          <form action="delete_order.php" method="post" name="delete_order">
+              <input type="hidden"  name="del" value="'.$order_on['id'].'"" />
+              <input type="submit" name="btn_submit_delete_order" value="Smazat" />
+            </form>
+            </td>';
+
+          echo '</tr>';  
+
     }
     // pro uzivatele bych dala nejaky select from course where course.id = listed_course.id_course and listed_course.number_logged < course.max_cap
 

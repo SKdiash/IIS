@@ -33,24 +33,24 @@
     // Deklarujeme promennou na zpravy
     $_SESSION["success_messages"] = '';
     
-    if(isset($_POST["btn_submit_refuse_order"]))
+    if(isset($_POST["btn_submit_delete_order"]))
     {
-         if(isset($_POST["refuse"])){
+         if(isset($_POST["del"])){
 
                 // Pokud nekdo zadal mezery na zacatku a konce - smazeme
-                $refuse = trim($_POST["refuse"]);
+                $del = trim($_POST["del"]);
 
                 // Test zda nemame prazdne pole
-                if(!empty($refuse)){
+                if(!empty($del)){
                     // Pro bezpecnost prevadive do html formatu
-                    $refuse = htmlspecialchars($refuse, ENT_QUOTES);
+                    $del = htmlspecialchars($del, ENT_QUOTES);
                 }else{
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Error refuse</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Error delete</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
-                    header("Location: ".$address_site."/take_order.php");
+                    header("Location: ".$address_site."/look_order.php");
 
                     exit();
                 }
@@ -61,32 +61,32 @@
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
-                header("Location: ".$address_site."/take_order.php");
+                header("Location: ".$address_site."/look_order.php");
 
                 exit();
             }
 
 
-        $refuse_update = $mysqli->query("UPDATE `order` SET accept=2 WHERE id = '".$refuse."'");
+        $delet = $mysqli->query("DELETE FROM `order` WHERE id = '".$del."'");
 
-        if(!$refuse_update){
+        if(!$delet){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Error with refuse</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Error with delete</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
-            header("Location: ".$address_site."/take_order.php");
+            header("Location: ".$address_site."/look_order.php");
 
             exit();
         }else{
 
-            $_SESSION["success_messages"] = "<p class='success_message'>refuse complete!!!</p>";
+            $_SESSION["success_messages"] = "<p class='success_message'>delete complete!!!</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
-            header("Location: ".$address_site."/take_order.php");
+            header("Location: ".$address_site."/look_order.php");
         }
-         $refuse_update->close();
+         $delet->close();
 
             // Zavirame database
             $mysqli->close();

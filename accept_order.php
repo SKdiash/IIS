@@ -50,7 +50,7 @@
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
-                    header("Location: ".$address_site."/course_on.php");
+                    header("Location: ".$address_site."/take_order.php");
 
                     exit();
                 }
