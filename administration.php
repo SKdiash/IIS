@@ -81,7 +81,7 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Uživatelé" id
                    }
                     echo '<td>
                    	 	<form action="delete_user_admin.php" method="post" name="delete_user_admin">
-                   	 		<input  name="usr" value="'.$users_all['email'].'"" />
+                   	 		<input type="hidden"  name="usr" value="'.$users_all['email'].'"" />
                          	<input type="submit" name="btn_delete_user_admin" value="Odstranit" />
                         </form>
                       </td>';
