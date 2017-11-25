@@ -36,16 +36,16 @@
     $_SESSION["success_messages"] = '';
 
 
-echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probihajici kurzy" id="Table2">
+echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probíhající kurzy" id="Table2">
    <tbody>
       <tr>
-         <th colspan="5" scope="colgroup">Naklady a zisky</th>
+         <th colspan="5" scope="colgroup">Náklady a zisky</th>
       </tr>
       <tr>
-         <th scope="col" abbr="Name">Jmeno kurzu</th>
-         <th scope="col" abbr="Tutor">Pocet ucastniku</th>   
+         <th scope="col" abbr="Name">Jméno kurzu</th>
+         <th scope="col" abbr="Tutor">Počet účastníků</th>   
          <th scope="col">Zisk</th>
-         <th scope="col">Naklad</th>
+         <th scope="col">Náklad</th>
          <th scope="col">Celkem</th>
       </tr>';
       

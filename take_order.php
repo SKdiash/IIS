@@ -73,7 +73,7 @@ echo '<table border="1" cellpadding="7" cellspacing="2" summary="Objednávky" id
     if($order_on['accept'] == 0)
        echo '<td>Čeká</td>';
     elseif ($order_on['accept'] == 1)
-       echo '<td>Přijmuta</td>';
+       echo '<td>Přijata</td>';
     else 
        echo '<td>Odmítnuta</td>';
 

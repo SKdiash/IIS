@@ -28,7 +28,7 @@
 </div>
 
 <div id="new_course">
-    <h2>Pridani noveho kurzu</h2>
+    <h2>Přidání nového kurzu</h2>
 
     <form action="adding_new_course.php" method="post" name="adding_new_course" >
         <table>
@@ -47,13 +47,13 @@
             </tr>
 
             <tr>
-                <td> Maximalni kapacita: </td>
+                <td> Maximální kapacita: </td>
                 <td>
                     <input type="text" name="max_capacity" required="required" />
                 </td>
             </tr>
             <tr>
-                <td> Cena pro jednotlivca: </td>
+                <td> Cena pro jednotlivce: </td>
                 <td>
                     <input type="text" name="price_one_person" required="required" />
                 </td>
@@ -65,7 +65,7 @@
                 </td>
             </tr>
             <tr>
-                <td> Naklady: </td>
+                <td> Náklady: </td>
                 <td>
                     <input type="text" name="cost_minus" required="required" />
                 </td>
@@ -79,7 +79,7 @@
             
             <tr>
                 <td colspan="2">
-                    <input type="submit" name="btn_submit_new_course" value="Pridat kurz!" />
+                    <input type="submit" name="btn_submit_new_course" value="Přidat kurz!" />
                 </td>
             </tr>
         </table>

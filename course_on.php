@@ -144,7 +144,7 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probíhající 
                     </tr>
         
                     <tr>
-                        <td> Mesto: </td>
+                        <td> Město: </td>
                         <td>
                             <input type="text" name="city" required="required" />
                         </td>

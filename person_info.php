@@ -35,10 +35,10 @@
     $row = $result->fetch_assoc();
         
     echo '
-    Osobne info:  <br/>  <p>
-    Email: '.$row['email'].' <br/>
-    Jmeno: '.$row['first_name'].' <br/>
-    Prijmeni: '.$row['last_name'].' <br/> </p>';
+    <h3>Osobní info:</h3> <p>
+    E-mail: '.$row['email'].' <br/>
+    Jméno: '.$row['first_name'].' <br/>
+    Příjmení: '.$row['last_name'].' <br/> </p>';
 ?>
 
 <form action="delete_user.php" method="post" name="delete_user" onclick="return confirm('Are you sure you want to delete this item?');">
