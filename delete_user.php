@@ -36,17 +36,37 @@
     $_SESSION["success_messages"] = '';
     
     if(isset($_POST["btn_delete_user"]))
-    {
-
+    { 
         $email = $_SESSION['email'];
-        $delete = $mysqli->query("DELETE FROM `users` WHERE email = '".$email."'");
+
+        $select =  $mysqli->query("SELECT * FROM users WHERE email = '".$email."'");
+        $row_mem = $select->fetch_assoc();
+
+        if($row_mem['firm'] == 0){//jednotlivec
+        
+            $select_course = $mysqli->query("SELECT id_l_course FROM member_of_course WHERE id_member = '".$row_mem['id']."'");
+
+           for($i = 1; $i <= ($select_course->num_rows); $i++){
+                $row_course= $select_course->fetch_assoc(); //snizit pocet ucastniku v konkretnim kurzu
+                $log_course = $mysqli->query("UPDATE `listed_course` SET number_logged=number_logged-1 WHERE id = '".$row_course['id_l_course']."'");
+            }
+        
+            $delete_mem = $mysqli->query("DELETE FROM member_of_course WHERE id_member = '".$row_mem['id']."'");//smazat z tabulky ucastniku u konk. kurzu
+        }
+        if($row_mem['firm'] == 1) {//firma
+             //smazat objednavky
+            $delete_order = $mysqli->query("DELETE FROM `order` WHERE id_firm = '".$row_mem['id']."'");
+
+        }
+
+        $delete = $mysqli->query("DELETE FROM `users` WHERE email = '".$email."'");//smazat uzivatele - sam sebe
         if(!$delete){
             // Pokud se nastala chyba - ukladame to do promenne
             $_SESSION["error_messages"] .= "<p class='mesage_error' >Error with delete</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
-            header("Location: ".$address_site."/index.php");
+            header("Location: ".$address_site."/person_info.php");
 
             exit();
         }else{

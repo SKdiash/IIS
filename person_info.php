@@ -39,11 +39,34 @@
     E-mail: '.$row['email'].' <br/>
     Jméno: '.$row['first_name'].' <br/>
     Příjmení: '.$row['last_name'].' <br/> </p>';
+    $true_order = 0;
+
+
+    if($row['firm'] == 1)
+    {
+         $list_order = $mysqli->query("SELECT * FROM `order` WHERE id_firm = '".$row['id']."'"); // objednavky
+   
+        for($i = 1; $i <= ($list_order->num_rows); $i++)
+        {  
+              
+              $order_on = $list_order->fetch_assoc();
+
+              if ($order_on['accept'] == 1)//objednavka prijata
+                $true_order = 1;
+        }
+    }
+
+    if($true_order != 1)//pokud firma nema zadnou prijatou objednavku nebo je uzivatel, admin
+    {
 ?>
 
 <form action="delete_user.php" method="post" name="delete_user" onclick="return confirm('Are you sure you want to delete this item?');">
     <input type="submit" name="btn_delete_user" value="Smazat uživatele!" />
 </form>
+
+<?php
+}
+?>
 
 <h2>Změna hesla</h2>
 <form action="change_pass.php" method="post" name="change_pass" >
@@ -66,7 +89,6 @@
 </td>
 </tr>
 </form>
-
 
 <?php
     require_once("footer.php");
