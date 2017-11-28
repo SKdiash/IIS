@@ -32,6 +32,10 @@
       <div id="course_on">
           <a href="course_on.php">Seznam probíhajících kurzů</a>
       </div>
+      <div id="member">
+          <a href="member.php">Seznam účastníků v kurzech</a>
+      </div>
+
       <div id="course_new">
           <a href="course_new.php">Vytvoření nového kurzu</a>
       </div>
