@@ -100,15 +100,15 @@ $_SESSION["access_time"] = time
             <div id="main">
                 <a href="index.php">Hlavní stránka</a>
             </div>
+    <div id="link_info">
+                <a href="kurs_info.php">Informace o kurzech</a>
+    </div>
+    
     <?php
         // Test zda uzivvatel je prihlasen
         if(!isset($_SESSION['email']) && !isset($_SESSION['password'])){
             // Pokud ne, tak "kreslime" tlacitka Registrace a Prihlaseni
     ?>      
-            
-            <div id="link_info">
-                <a href="kurs_info.php">Informace o kurzech</a>
-            </div>
             
             <div id="link_register">
                 <a href="form_register.php">Registrace</a>
