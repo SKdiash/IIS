@@ -50,7 +50,7 @@ echo '<table border="1" cellpadding="6" cellspacing="2" summary="Probíhající 
          <th scope="col">Celkem</th>
       </tr>';
       
-
+    echo '<tr><td colspan="6" align="center">Probíhajících kurzů</td></tr>';
     $total = 0;  
       
     $list_course = $mysqli->query("SELECT * FROM `listed_course`"); // zjistime kolik ted probiha kurzu
@@ -77,7 +77,9 @@ echo '<table border="1" cellpadding="6" cellspacing="2" summary="Probíhající 
 
           echo '</tr>';  
       }
-      
+    
+    echo '<tr><td colspan="6" align="center">Objednavky od firmy</td></tr>';  
+    
     $listed_order = $mysqli->query("SELECT * FROM `order` WHERE accept = 1"); // zjistime kolik ted probiha kurzu
     //echo $list_course->num_rows;
     for($j = 1; $j <= ($listed_order->num_rows); $j++)
