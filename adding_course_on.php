@@ -20,7 +20,7 @@
                     $name = htmlspecialchars($name, ENT_QUOTES);
                 }else{
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Enter name of course</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Vložte jméno kurzu.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -30,7 +30,7 @@
                 }
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Nezadáno jméno kurzu.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -50,7 +50,7 @@
                 $city = htmlspecialchars($city, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>Enter city</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Vložte město</p>";
     
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -60,7 +60,7 @@
             }
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error'>No city1</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nezadáno město.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -80,7 +80,7 @@
                 $date = htmlspecialchars($date, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>Ukazte datum</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Vyberte datum.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -90,7 +90,7 @@
             }
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error'>No date1</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nezadán datum.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -107,7 +107,7 @@
         
         if(!$result_query_insert){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Error while adding course</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Chyba při vkládání kurzu.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -116,7 +116,7 @@
             exit();
         }else{
 
-            $_SESSION["success_messages"] = "<p class='success_message'>Adding new course complete!</p>";
+            $_SESSION["success_messages"] = "<p class='success_message'>Nový kurz přidán.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -128,7 +128,7 @@
             // Zavirame database
             $mysqli->close();
     }else{
-        exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
+        exit("<p><strong>Chyba!</strong> Špatná stránka <a href=".$address_site."> hlavní stránka</a>.</p>");
     }
     
     

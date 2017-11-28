@@ -46,7 +46,7 @@
                     $accept = htmlspecialchars($accept, ENT_QUOTES);
                 }else{
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Error accept</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Chyba s hodnodnotou příjmu/zamítnutí objednávky.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -57,7 +57,7 @@
 
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Špatná hodnota příjmu/zamítnutí objednávky.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -71,7 +71,7 @@
 
         if(!$refuse_update){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Error with refuse</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Chyba při přijetí objednávky.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -80,7 +80,7 @@
             exit();
         }else{
 
-            $_SESSION["success_messages"] = "<p class='success_message'>refuse complete!!!</p>";
+            $_SESSION["success_messages"] = "<p class='success_message'>Objednávka přijata.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -92,7 +92,7 @@
             $mysqli->close();
     }
     else{
-        exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
+        exit("<p><strong>Chyba!</strong> Špatná stránka <a href=".$address_site."> hlavní stránka</a>.</p>");
     }
 
 

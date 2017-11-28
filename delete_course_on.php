@@ -46,7 +46,7 @@
                 $course = htmlspecialchars($course, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>Nastala chyba pøi mazání probíhajícího kurzu.</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Nastala chyba pÅ™i mazÃ¡nÃ­ probÃ­hajÃ­cÃ­ho kurzu.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -57,7 +57,7 @@
 
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nastala chyba pøi mazání probíhajícího kurzu.</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nastala chyba pÅ™i mazÃ¡nÃ­ probÃ­hajÃ­cÃ­ho kurzu.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -69,7 +69,7 @@
         $delete = $mysqli->query("DELETE FROM `listed_course` WHERE id = '".$course."'");
         if(!$delete){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pøi mazání probíhajícího kurzu.</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pÅ™i mazÃ¡nÃ­ probÃ­hajÃ­cÃ­ho kurzu.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -77,7 +77,7 @@
 
             exit();
         }else{
-            $_SESSION["success_messages"] = "<p class='success_message'>Mazání probíhajícího kurzu probìhlo úspì¹nì</p>";
+            $_SESSION["success_messages"] = "<p class='success_message'>ProbÃ­hajÃ­cÃ­ kurz smazÃ¡n.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -90,7 +90,7 @@
     }
     else
     {
-        exit("<p><strong>Error!</strong> Nacházíte jsi na ¹patnì stránce. Po¾ádáme Vás, abyses vrátili na <a href=".$address_site.">hlavní stránku</a>. Dìkujeme.</p>");
+        exit("<p><strong>Error!</strong> NachÃ¡zÃ­te jsi na Å¡patnÃ© strÃ¡nce. VrÃ¡Å¥te se na <a href=".$address_site.">hlavnÃ­ strÃ¡nku</a>.</p>");
     }  
 
 ?>

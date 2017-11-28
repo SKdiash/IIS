@@ -51,13 +51,13 @@ $_SESSION["access_time"] = time
                         $('input[type=submit]').attr('disabled', false);
                     }else{
                         // Vypisujeme zpravy o chybe
-                        $('#valid_email_message').text('Wrong Email1');
+                        $('#valid_email_message').text('Špatný e-mail.');
 
                         // Deaktivujeme tlacitko na registrace
                         $('input[type=submit]').attr('disabled', true);
                     }
                 }else{
-                    $('#valid_email_message').text('Enter 1 email');
+                    $('#valid_email_message').text('Vložte e-mail');
                 }
             });
 
@@ -70,7 +70,7 @@ $_SESSION["access_time"] = time
                     // Pokud heslo in nez 6 symbolu - chyba
                     if(password.val().length < 6){
                         // Vypisujeme zpravy o chybe
-                        $('#valid_password_message').text('Min lenght is 6');
+                        $('#valid_password_message').text('Min délka je 6');
 
                         // Deaktivujeme tlacitko na registrace
                         $('input[type=submit]').attr('disabled', true);
@@ -83,7 +83,7 @@ $_SESSION["access_time"] = time
                         $('input[type=submit]').attr('disabled', false);
                     }
                 }else{
-                    $('#valid_password_message').text('Enter 1 pass');
+                    $('#valid_password_message').text('Vložte heslo');
                 }
             });
         });

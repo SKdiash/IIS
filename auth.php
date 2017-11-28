@@ -29,7 +29,7 @@
                 // Pokud zadany email neodpovida regularnimu vyrazu
                 if( !preg_match($reg_email, $email)){
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error' >Not valid 6 email</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error' >Nevalidní e-mail.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -39,7 +39,7 @@
                 }
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >Empty email 6</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Prázdný e-mail.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -49,7 +49,7 @@
             }
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >No 6 Email</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nezadán e-mail.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -68,7 +68,7 @@
                 $password = htmlspecialchars($password, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >Enter pass 6</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Vložte heslo.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -78,7 +78,7 @@
             }
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Na password 6</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nezadáno heslo.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -92,7 +92,7 @@
 
         if(!$result_query_select){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >ERROR while searching user</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Chyba při vyhledání uživatele.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -115,7 +115,7 @@
             }else{
 
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >Wrong email or pass</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Špatný e-mail nebo heslo.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -125,5 +125,5 @@
             }
         }
     }else{
-        exit("<p><strong>ERROR!</strong> How can u get hear? Go away or <a href=".$address_site."> mainpage </a>.</p>");
+       exit("<p><strong>Chyba!</strong> Špatná stránka <a href=".$address_site."> hlavní stránka</a>.</p>");
     }

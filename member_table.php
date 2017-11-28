@@ -53,7 +53,7 @@
 
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nebylo zadano jméno kurzu, které chcete vyhledat. Zadajte ho, prosím.</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nebylo zadáno jméno kurzu, které chcete vyhledat. Zadajte ho, prosím.</p>";
 
         } 
         //konkretni kurz

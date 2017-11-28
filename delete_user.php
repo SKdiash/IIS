@@ -61,7 +61,7 @@
         $delete = $mysqli->query("DELETE FROM `users` WHERE email = '".$email."'");//smazat uzivatele - sam sebe
         if(!$delete){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pøi mazání úètu. Zkuste je¹tì jednou, prosím.</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pÅ™i mazÃ¡nÃ­ ÃºÄtu.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -70,7 +70,7 @@
             exit();
         }else{
             
-            $_SESSION["success_messages"] = "<p class='success_message'>Jste úspì¹nì smazal svùj úèet.</p>";
+            $_SESSION["success_messages"] = "<p class='success_message'>ÃšÄet je ÃºspÄ›Å¡nÄ› smazÃ¡n.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             unset($_SESSION["email"]);
@@ -81,7 +81,7 @@
         } 
     }
     else{
-        exit("<p><strong>Error!</strong> Nacházíte jsi na ¹patnì stránce. Po¾ádáme Vás, abyses vrátili na <a href=".$address_site.">hlavní stránku</a>. Dìkujeme.</p>");
+        exit("<p><strong>Error!</strong> NachÃ¡zÃ­te se na Å¡patnÃ© strÃ¡nce. VrÃ¡Å¥e se na <a href=".$address_site.">hlavnÃ­ strÃ¡nku</a>.</p>");
     }
 
 ?>

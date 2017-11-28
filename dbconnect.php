@@ -12,7 +12,7 @@
 
     // test zda jsme pripojili ke database
     if (mysqli_connect_errno()) {
-        echo "<p><strong>ERROR!</strong>.: ".mysqli_connect_error()."</p>";
+        echo "<p><strong>Chyba!</strong>.: ".mysqli_connect_error()."</p>";
         exit();
     }
 

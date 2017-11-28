@@ -24,7 +24,7 @@
                 $new_password = htmlspecialchars($new_password, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >Omlouváme se, ale nastala chyba pøi zpracování hesla. Zkuste je¹tì jednou, prosím.</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >OmlouvÃ¡me se, ale nastala chyba pÅ™i zpracovÃ¡nÃ­ hesla. Zkuste to jeÅ¡tÄ› jednou, prosÃ­m.</p>";
             }
             
             $email = $_SESSION['email'];
@@ -37,7 +37,7 @@
                 // Dotaz na pridani do database
                 if(!$changes){
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error' >Omlouváme se, ale nastala chyba pøi zmìnì hesla. Zkus'te je¹tì jednou, prosím.</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error' >OmlouvÃ¡me se, ale nastala chyba pÅ™i zmÄ›nÄ› hesla. Zkuste jeÅ¡tÄ› jednou, prosÃ­m.</p>";
     
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -46,7 +46,7 @@
                     exit();
                 }else{
     
-                    $_SESSION["success_messages"] = "<p class='success_message'>Gratulujeme! Zmìna hesla probìhla úspì¹nì.</p>";
+                    $_SESSION["success_messages"] = "<p class='success_message'>ZmÄ›na hesla probÄ›hla ÃºspÄ›Å¡nÄ›.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -56,7 +56,7 @@
             } 
             else
             {
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >ERROR! Zadali jsi ¹patnì staré heslo. Zkuste je¹tì jednou, prosím.</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Chyba! Zadali jste Å¡patnÄ› starÃ© heslo.</p>";
                 header("HTTP/1.1 301 Moved Permanently");
                 header("Location: ".$address_site."/person_info.php");
     
@@ -66,7 +66,7 @@
         }
     }
     else{
-        exit("<p><strong>Error!</strong> Nacházíte jsi na ¹patnì stránce. Po¾ádáme Vás, abyses vrátili na <a href=".$address_site.">hlavní stránku</a>. Dìkujeme.</p>");
+       exit("<p><strong>Error!</strong> NachÃ¡zÃ­te se na Å¡patnÃ© strÃ¡nce. VrÃ¡Å¥e se na <a href=".$address_site.">hlavnÃ­ strÃ¡nku</a>.</p>");
     }
 
 
