@@ -29,7 +29,7 @@
     require_once("person_area.php");
 ?>
 
-<h2>Seznamy účastníků ve kurzech</h2>
+<h2>Seznamy účastníků v kurzech</h2>
 <?php
   
     $_SESSION["error_messages"] = '';
