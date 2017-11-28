@@ -39,13 +39,13 @@
                     <select name="name" required="required">
                        <?php 
                           
-                          $all_course = $mysqli->query("SELECT name,price_firm FROM `course`");
+                          $all_course = $mysqli->query("SELECT * FROM `course`");
                           
                           for($d = 1; $d <= ($all_course->num_rows); $d++)
                           {
                             $course_are = $all_course->fetch_assoc();
                             
-                            echo '<option value="'.$course_are['name'].'">'.$course_are['name'].', '.$course_are['price_firm'].' Kč </optionc>';
+                            echo '<option value="'.$course_are['name'].'">'.$course_are['name'].', '.$course_are['price_firm'].' Kč, max.'.$course_are['max_capacity'].' osob </optionc>';
                           }
                        ?>
                     </select>
