@@ -1,7 +1,5 @@
 <?php
     require_once("header.php");
-    
-    /* TODO TLACITKA ODSTRANIT KURZ, PRIHLASIT SE, PRIDAT KURZ*/
 ?>
 
 <!-- Specialni block na chyby a zpravy -->
@@ -41,20 +39,19 @@
     
     for($i = 1; $i <= ($list_course->num_rows); $i++)
     {  
-          
           $course_on = $list_course->fetch_assoc();
+          //pro vypis jmena kurzu
           $result = $mysqli->query("SELECT * FROM `course`, `listed_course` WHERE listed_course.id = '".$course_on['id']."' AND course.id_course = listed_course.id_course");
           $course_all = $result->fetch_assoc();
+          //vypis jen pokud je tam vice jak 0 ucastniku
           if($course_on['number_logged']>0)
               echo '<form action="member_table.php" method="post" name="member_table">
                         <input type="hidden"  name="course_name" value="'.$course_on['id'].'"" />
                         <input type="submit" name="btn_members" value="'.$course_all['name']."\tod ".$course_on['date'].'" />
                     </form>';
     }
-
-                      
+                
 ?>
-
 
 
 <?php

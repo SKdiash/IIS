@@ -1,7 +1,5 @@
 <?php
     require_once("header.php");
-    
-    /* TODO TLACITKA ODSTRANIT KURZ, PRIHLASIT SE, PRIDAT KURZ*/
 ?>
 
 <!-- Specialni block na chyby a zpravy -->
@@ -35,7 +33,7 @@
     // Deklarujeme promennou na zpravy
     $_SESSION["success_messages"] = '';
 
-
+//vytisteni tabulky probihajicich kurzu
 echo '<table border="1" cellpadding="6" cellspacing="2" summary="Probíhající kurzy" id="Table2">
    <tbody>
       <tr>
@@ -54,11 +52,10 @@ echo '<table border="1" cellpadding="6" cellspacing="2" summary="Probíhající 
     $total = 0;  
       
     $list_course = $mysqli->query("SELECT * FROM `listed_course`"); // zjistime kolik ted probiha kurzu
-    //echo $list_course->num_rows;
     
     for($i = 1; $i <= ($list_course->num_rows); $i++)
     {  
-          
+          //vypocitani ztraty zisku, prijmu a vydaju a vytisteni
           $course_on = $list_course->fetch_assoc();
           $result = $mysqli->query("SELECT * FROM `course`, `listed_course` WHERE listed_course.id = '".$course_on['id']."' AND course.id_course = listed_course.id_course");
           $course_all = $result->fetch_assoc();
@@ -73,15 +70,13 @@ echo '<table border="1" cellpadding="6" cellspacing="2" summary="Probíhající 
                    <td>'.$zisk.'</td>
                    <td>'.$course_all['cost_course'].'</td>
                    <td>'.$celkem.'</td>';
-                   
-
           echo '</tr>';  
       }
     
-    echo '<tr><td colspan="6" align="center">Objednavky od firmy</td></tr>';  
+    echo '<tr><td colspan="6" align="center">Objednávky od firmy</td></tr>';  
     
-    $listed_order = $mysqli->query("SELECT * FROM `order` WHERE accept = 1"); // zjistime kolik ted probiha kurzu
-    //echo $list_course->num_rows;
+    $listed_order = $mysqli->query("SELECT * FROM `order` WHERE accept = 1"); // zjistime kolik je objednavek
+    //pro objednavky, vypocet a vytisteni zisku, prijmu a vydaju
     for($j = 1; $j <= ($listed_order->num_rows); $j++)
     {  
           
@@ -99,16 +94,11 @@ echo '<table border="1" cellpadding="6" cellspacing="2" summary="Probíhající 
                    <td>'.$zisk.'</td>
                    <td>'.$order_all['cost_course'].'</td>
                    <td>'.$celkem.'</td>';
-                   
-
           echo '</tr>';                    
     }
           
-          
-        
+    //celkovy zisk/ztrata
     echo '<tr><td colspan="6" align="right">'.$total.'</td></tr>';
-    // pro uzivatele bych dala nejaky select from course where course.id = listed_course.id_course and listed_course.number_logged < course.max_cap
-
 ?>
 
 <?php

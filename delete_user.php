@@ -35,15 +35,14 @@
     // Deklarujeme promennou na zpravy
     $_SESSION["success_messages"] = '';
     
-    if(isset($_POST["btn_delete_user"]))
+    if(isset($_POST["btn_delete_user"]))//zmacknute tlacitko smazat
     { 
-        $email = $_SESSION['email'];
-
+        $email = $_SESSION['email'];//email uzivatele
         $select =  $mysqli->query("SELECT * FROM users WHERE email = '".$email."'");
         $row_mem = $select->fetch_assoc();
 
         if($row_mem['firm'] == 0){//jednotlivec
-        
+            //vybrat id konk.kurzu kde je uzivatel zaregistrovan
             $select_course = $mysqli->query("SELECT id_l_course FROM member_of_course WHERE id_member = '".$row_mem['id']."'");
 
            for($i = 1; $i <= ($select_course->num_rows); $i++){
@@ -54,7 +53,7 @@
             $delete_mem = $mysqli->query("DELETE FROM member_of_course WHERE id_member = '".$row_mem['id']."'");//smazat z tabulky ucastniku u konk. kurzu
         }
         if($row_mem['firm'] == 1) {//firma
-             //smazat objednavky
+             //smazat objednavky uzivatele
             $delete_order = $mysqli->query("DELETE FROM `order` WHERE id_firm = '".$row_mem['id']."'");
 
         }
@@ -84,6 +83,5 @@
     else{
         exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
     }
-
 
 ?>

@@ -23,7 +23,6 @@
     ?>
 </div>
 
-
 <?php
     require_once("dbconnect.php");
 
@@ -35,7 +34,7 @@
     
     if(isset($_POST["btn_submit_logout_course"]))
     {
-        if(isset($_POST["course_log"])){
+        if(isset($_POST["course_log"])){//id konk. kurzu
 
             // Pokud nekdo zadal mezery na zacatku a konce - smazeme
             $log = trim($_POST["course_log"]);
@@ -66,7 +65,7 @@
             exit();
         }
 
-        if(isset($_POST["member_log"])){
+        if(isset($_POST["member_log"])){//clen u kurzu
 
             // Pokud nekdo zadal mezery na zacatku a konce - smazeme
             $member = trim($_POST["member_log"]);
@@ -97,10 +96,8 @@
             exit();
         }
 
-
-
+        //smazani uzivatele z konkretniho kurzu
         $delete_mem = $mysqli->query("DELETE FROM member_of_course WHERE id_l_course ='".$log."' AND id_member = '".$member."'");
-
 
         if(!$delete_mem){
             // Pokud se nastala chyba - ukladame to do promenne

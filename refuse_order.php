@@ -23,7 +23,6 @@
     ?>
 </div>
 
-
 <?php
     require_once("dbconnect.php");
 
@@ -33,7 +32,7 @@
     // Deklarujeme promennou na zpravy
     $_SESSION["success_messages"] = '';
     
-    if(isset($_POST["btn_submit_refuse_order"]))
+    if(isset($_POST["btn_submit_refuse_order"]))//tlacitko odmitnout
     {
          if(isset($_POST["refuse"])){
 
@@ -54,7 +53,6 @@
 
                     exit();
                 }
-
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
                 $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
@@ -65,8 +63,7 @@
 
                 exit();
             }
-
-
+            //zmena na odmitnuto v databazi
         $refuse_update = $mysqli->query("UPDATE `order` SET accept=2 WHERE id = '".$refuse."'");
 
         if(!$refuse_update){

@@ -30,7 +30,7 @@
 
 <?php
 
-
+//tabulka s uzivately
 echo '<table border="1" cellpadding="5" cellspacing="2" summary="Uživatelé" id="Table3">
    <tbody>
       <tr>
@@ -47,49 +47,39 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Uživatelé" id
     $_SESSION["error_messages"] = '';
     // Deklarujeme promennou na zpravy
     $_SESSION["success_messages"] = '';
-
-    // Abychom dozvedeli kdo je uzivatel, potrebujeme to pozdeji
-    $email = $_SESSION['email'];
-    $result = $mysqli->query("SELECT firm FROM `users` WHERE email = '".$email."'");
-    $user = $result->fetch_assoc();
       
-      
-    $list_user = $mysqli->query("SELECT * FROM `users` WHERE users.firm != 3"); // zjistime kolik ted probiha kurzu
-    //echo $list_course->num_rows;
+    $list_user = $mysqli->query("SELECT * FROM `users` WHERE users.firm != 3"); //ucastnici nebo firmy
     
     for($i = 1; $i <= ($list_user->num_rows); $i++)
     {  
-          
-          $users_on = $list_user->fetch_assoc();
-          $result = $mysqli->query("SELECT * FROM `users` WHERE users.id = '".$users_on['id']."'");
-          $users_all= $result->fetch_assoc();
-          echo '<tr>
-                   <td scope="row">'.$users_all['first_name'].'</td>
-                   <td>'.$users_all['last_name'].'</td>
-                   <td>'.$users_all['email'].'</td>';
-                   
-                   if($users_on['firm'] == 1) //firma
-                   {
-                      echo '<td>Ano</td>';
-                   }elseif($users_on['firm'] == 0) //jednotlivec
-                   {   
-                      echo '<td>Ne</td>';
-                   }
-                   else
-                   {  
-                      echo '<td></td>';
-                   }
-                    echo '<td>
-                   	 	<form action="delete_user_admin.php" method="post" name="delete_user_admin onclick="return confirm("Are you sure you want to delete this item?");"">
-                   	 		<input type="hidden"  name="usr" value="'.$users_all['email'].'"" />
-                         	<input type="submit" name="btn_delete_user_admin" value="Odstranit" />
-                        </form>
-                      </td>';
+        $users_on = $list_user->fetch_assoc();
+        $result = $mysqli->query("SELECT * FROM `users` WHERE users.id = '".$users_on['id']."'");
+        $users_all= $result->fetch_assoc();//vypis vsech uzivatelů
+        echo '<tr>
+                 <td scope="row">'.$users_all['first_name'].'</td>
+                 <td>'.$users_all['last_name'].'</td>
+                 <td>'.$users_all['email'].'</td>';
+                 
+                 if($users_on['firm'] == 1) //firma
+                 {
+                    echo '<td>Ano</td>';
+                 }elseif($users_on['firm'] == 0) //jednotlivec
+                 {   
+                    echo '<td>Ne</td>';
+                 }
+                 else
+                 {  
+                    echo '<td></td>';
+                 }//tlacitko pro smazani
+                  echo '<td>
+                 	 	<form action="delete_user_admin.php" method="post" name="delete_user_admin onclick="return confirm("Are you sure you want to delete this item?");"">
+                 	 		<input type="hidden"  name="usr" value="'.$users_all['email'].'"" />
+                       	<input type="submit" name="btn_delete_user_admin" value="Odstranit" />
+                      </form>
+                    </td>';
 
-                echo '</tr>';
+              echo '</tr>';
     }
-    // pro uzivatele bych dala nejaky select from course where course.id = listed_course.id_course and listed_course.number_logged < course.max_cap
-
 ?>
 
 <?php

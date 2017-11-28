@@ -1,7 +1,5 @@
 <?php
     require_once("header.php");
-    
-    /* TODO TLACITKA ODSTRANIT KURZ, PRIHLASIT SE, PRIDAT KURZ*/
 ?>
 
 <!-- Specialni block na chyby a zpravy -->
@@ -37,7 +35,7 @@
     // Deklarujeme promennou na zpravy
     $_SESSION["success_messages"] = '';
 
-    if(isset($_POST["btn_members"]))
+    if(isset($_POST["btn_members"]))//vypsani uzivatelu konkretniho kurzu
     { 
         if(isset($_POST["course_name"])){
 
@@ -51,8 +49,6 @@
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
                 $_SESSION["error_messages"] .= "<p class='mesage_error'>Error member table</p>";
-
-                // Vraceme uzivateli na hlavni stranku 
             }
 
         }else{
@@ -60,21 +56,18 @@
             $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
 
         } 
-
-
+        //konkretni kurz
         $list_member = $mysqli->query("SELECT * FROM `member_of_course` WHERE id_l_course = '".$mem."'"); 
         
         for($i = 1; $i <= ($list_member->num_rows); $i++)
         {  
-              
-              $members = $list_member->fetch_assoc();
-
-              $result = $mysqli->query("SELECT * FROM `users` WHERE id = '".$members['id_member']."' ");
-              $mem_all = $result->fetch_assoc();
-              echo '<td> '.$mem_all['first_name'].' '.$mem_all['last_name'].'</td>';
+            //clenove konkretniho kurzu - vypis
+            $members = $list_member->fetch_assoc();
+            $result = $mysqli->query("SELECT * FROM `users` WHERE id = '".$members['id_member']."' ");
+            $mem_all = $result->fetch_assoc();
+            echo '<td> '.$mem_all['first_name'].' '.$mem_all['last_name'].'</td>';//jmeno a prijmeni
         }
     }
-   
 ?>
 
 <?php

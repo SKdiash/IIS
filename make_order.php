@@ -6,7 +6,6 @@
     require_once("person_area.php");
 ?>
 
-
 <!-- Specialni block na chyby a zpravy -->
 <div class="block_for_messages">
     <?php
@@ -28,9 +27,10 @@
     ?>
 </div>
 
+
 <div id="new_order">
     <h2>Vytvořit novou objednávku</h2>
-
+    <!-- Formular pro vytvoreni nove objednavky -->
     <form action="adding_new_order.php" method="post" name="adding_new_order" >
         <table>
             <tr>
@@ -74,10 +74,6 @@
         </table>
     </form>
 </div>
-
-
-
-
 
 
 <?php

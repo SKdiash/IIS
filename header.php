@@ -12,14 +12,14 @@ ini_set("default_charset", "UTF-8");
 
 
 <?php
-/*
+//automaticke odhlaseni po 10 minutach
 if(empty($_SESSION["access_time"]))$_SESSION["access_time"] = time();
 if ($_SESSION["access_time"] < strtotime("-10 minute")) {
     unset($_SESSION["email"]);
     unset($_SESSION["password"]);
 }
 $_SESSION["access_time"] = time
-();*/
+();
 ?>
 
 
@@ -105,7 +105,7 @@ $_SESSION["access_time"] = time
     </div>
     
     <?php
-        // Test zda uzivvatel je prihlasen
+        // Test zda uzivatel je prihlasen
         if(!isset($_SESSION['email']) && !isset($_SESSION['password'])){
             // Pokud ne, tak "kreslime" tlacitka Registrace a Prihlaseni
     ?>      

@@ -1,9 +1,3 @@
-
-<?php
-/* TODO */
-/* zatim nic */
-?>
-
 <?php
     session_start();
 
@@ -18,7 +12,7 @@
     // Test zda uzivatel zmacknoul tlacitko registrace
     // Pokud ano, tak registrujeme uzivateli do database
     // Pokud ne, to znamena, ze uzivatel zkusil pristupit primo do stranky - chyba!
-    if(isset($_POST["btn_submit_register"]) && !empty($_POST["btn_submit_register"])){
+    if(isset($_POST["btn_submit_register"]) && !empty($_POST["btn_submit_register"])){//tlacitko registrovat
 
            // Pokud bylo zadano jmeno, zapisime ho do promenne a kontrolujeme zda zadano zpravne
             if(isset($_POST["first_name"])){
@@ -40,7 +34,6 @@
 
                     exit();
                 }
-
 
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
@@ -74,7 +67,6 @@
                     exit();
                 }
 
-
             }else{
 
                 // Pokud se nastala chyba - ukladame to do promenne
@@ -97,7 +89,6 @@
 
                     // Pro bezpecnost prevadive do html formatu
                     $email = htmlspecialchars($email, ENT_QUOTES);
-
 
                     // Regularni vyraz pro testovani email adresy
                     $reg_email = "/^[a-z0-9][a-z0-9\._-]*[a-z0-9]*@([a-z0-9]+([a-z0-9-]*[a-z0-9]+)*\.)+[a-z]+/i";
@@ -200,7 +191,6 @@
             }
             
             $subcheck = (isset($_POST['subcheck'])) ? 1 : 0;
-
 
             // Dotaz na pridani do database
             $result_query_insert = $mysqli->query("INSERT INTO `users` (first_name, last_name, email, password, firm) VALUES ('".$first_name."', '".$last_name."', '".$email."', '".$password."', '".$subcheck."')");

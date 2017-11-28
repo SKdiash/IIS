@@ -33,7 +33,7 @@
     // Deklarujeme promennou na zpravy
     $_SESSION["success_messages"] = '';
     
-    if(isset($_POST["btn_delete_user_admin"]))
+    if(isset($_POST["btn_delete_user_admin"]))//zmacknuto tlacitko smazat uzivatele
     {
         if(isset($_POST["usr"])){
 
@@ -65,12 +65,12 @@
 
             exit();
         }
-
+        //vyper uzivatele pro smazani
         $select =  $mysqli->query("SELECT * FROM users WHERE email = '".$usr."'");
         $row_mem = $select->fetch_assoc();
 
         if($row_mem['firm'] == 0){//jednotlivec
-        
+            //kurzy ve kterych je registrovan
             $select_course = $mysqli->query("SELECT id_l_course FROM member_of_course WHERE id_member = '".$row_mem['id']."'");
 
            for($i = 1; $i <= ($select_course->num_rows); $i++){
@@ -83,10 +83,8 @@
         if($row_mem['firm'] == 1) {//firma
              //smazat objednavky
             $delete_order = $mysqli->query("DELETE FROM `order` WHERE id_firm = '".$row_mem['id']."'");
-
         }
-
-
+        //smazani uzivatele
         $delete = $mysqli->query("DELETE FROM `users` WHERE email = '".$usr."'");
         if(!$delete){
             // Pokud se nastala chyba - ukladame to do promenne

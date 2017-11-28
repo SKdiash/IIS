@@ -1,11 +1,5 @@
 
 <?php
-/* TODO */
-/* ABY PO ODHLASOVANI UZIVATELU "PRESTEHOVAL" DO HLAVNI STRANKY  */
-
-?>
-
-<?php
     require_once("header.php");
 ?>
 
