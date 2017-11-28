@@ -35,29 +35,17 @@
     
     if(isset($_POST["btn_submit_delete_order"]))
     {
-         if(isset($_POST["del"])){
+        if(isset($_POST["del"])){
+            // Pokud nekdo zadal mezery na zacatku a konce - smazeme
+            $del = trim($_POST["del"]);
 
-                // Pokud nekdo zadal mezery na zacatku a konce - smazeme
-                $del = trim($_POST["del"]);
-
-                // Test zda nemame prazdne pole
-                if(!empty($del)){
-                    // Pro bezpecnost prevadive do html formatu
-                    $del = htmlspecialchars($del, ENT_QUOTES);
-                }else{
-                    // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Error delete</p>";
-
-                    // Vraceme uzivateli na hlavni stranku
-                    header("HTTP/1.1 301 Moved Permanently");
-                    header("Location: ".$address_site."/look_order.php");
-
-                    exit();
-                }
-
+            // Test zda nemame prazdne pole
+            if(!empty($del)){
+                // Pro bezpecnost prevadive do html formatu
+                $del = htmlspecialchars($del, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Error delete</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -65,7 +53,16 @@
 
                 exit();
             }
+        }else{
+            // Pokud se nastala chyba - ukladame to do promenne
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
 
+            // Vraceme uzivateli na hlavni stranku
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location: ".$address_site."/look_order.php");
+
+            exit();
+        }
 
         $delet = $mysqli->query("DELETE FROM `order` WHERE id = '".$del."'");
 
@@ -86,14 +83,13 @@
             header("HTTP/1.1 301 Moved Permanently");
             header("Location: ".$address_site."/look_order.php");
         }
-         $delet->close();
+        $delet->close();
 
-            // Zavirame database
-            $mysqli->close();
+        // Zavirame database
+        $mysqli->close();
     }
-    else{
+    else
+    {
         exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
     }
-
-
 ?>

@@ -35,29 +35,18 @@
     
     if(isset($_POST["btn_submit_delete_course"]))
     {
-         if(isset($_POST["course"])){
+        if(isset($_POST["course"])){
+            
+            // Pokud nekdo zadal mezery na zacatku a konce - smazeme
+            $course = trim($_POST["course"]);
 
-                // Pokud nekdo zadal mezery na zacatku a konce - smazeme
-                $course = trim($_POST["course"]);
-
-                // Test zda nemame prazdne pole
-                if(!empty($course)){
-                    // Pro bezpecnost prevadive do html formatu
-                    $course = htmlspecialchars($course, ENT_QUOTES);
-                }else{
-                    // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Error delete course</p>";
-
-                    // Vraceme uzivateli na hlavni stranku
-                    header("HTTP/1.1 301 Moved Permanently");
-                    header("Location: ".$address_site."/course_on.php");
-
-                    exit();
-                }
-
+            // Test zda nemame prazdne pole
+            if(!empty($course)){
+                // Pro bezpecnost prevadive do html formatu
+                $course = htmlspecialchars($course, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1 del</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Error delete course</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -66,9 +55,17 @@
                 exit();
             }
 
+        }else{
+            // Pokud se nastala chyba - ukladame to do promenne
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1 del</p>";
 
+            // Vraceme uzivateli na hlavni stranku
+            header("HTTP/1.1 301 Moved Permanently");
+            header("Location: ".$address_site."/course_on.php");
 
-
+            exit();
+        }
+          
         $delete = $mysqli->query("DELETE FROM `listed_course` WHERE id = '".$course."'");
         if(!$delete){
             // Pokud se nastala chyba - ukladame to do promenne
@@ -80,21 +77,20 @@
 
             exit();
         }else{
-
             $_SESSION["success_messages"] = "<p class='success_message'>delete complete!!!</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
             header("Location: ".$address_site."/course_on.php");
         }
-         $delete->close();
-
-            // Zavirame database
-            $mysqli->close();
+        
+        $delete->close();
+        // Zavirame database
+        $mysqli->close();
     }
-    else{
+    else
+    {
         exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
     }
-
 
 ?>

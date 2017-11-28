@@ -35,23 +35,22 @@
     $row = $result->fetch_assoc();
         
     echo '
-    <h3>Osobní info:</h3> <p>
-    E-mail: '.$row['email'].' <br/>
-    Jméno: '.$row['first_name'].' <br/>
-    Příjmení: '.$row['last_name'].' <br/> </p>';
+        <h3>Osobní info:</h3> <p>
+        E-mail: '.$row['email'].' <br/>
+        Jméno: '.$row['first_name'].' <br/>
+        Příjmení: '.$row['last_name'].' <br/> </p>';
     $true_order = 0;
 
 
     if($row['firm'] == 1)
     {
-         $list_order = $mysqli->query("SELECT * FROM `order` WHERE id_firm = '".$row['id']."'"); // objednavky
+        $list_order = $mysqli->query("SELECT * FROM `order` WHERE id_firm = '".$row['id']."'"); // objednavky
    
         for($i = 1; $i <= ($list_order->num_rows); $i++)
         {  
-              
-              $order_on = $list_order->fetch_assoc();
+            $order_on = $list_order->fetch_assoc();
 
-              if ($order_on['accept'] == 1)//objednavka prijata
+            if ($order_on['accept'] == 1)//objednavka prijata
                 $true_order = 1;
         }
     }

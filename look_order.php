@@ -30,7 +30,7 @@
 
 
 echo '<table border="1" cellpadding="5" cellspacing="2" summary="Objednávky" id="Table4">
-   <tbody>
+      <tbody>
       <tr>
          <th colspan="5" scope="colgroup">Objednávky</th>
       </tr>
@@ -59,40 +59,31 @@ echo '<table border="1" cellpadding="5" cellspacing="2" summary="Objednávky" id
     
     for($i = 1; $i <= ($list_order->num_rows); $i++)
     {  
-          
-          $order_on = $list_order->fetch_assoc();
+        $order_on = $list_order->fetch_assoc();
+        $resC = $mysqli->query("SELECT name FROM `course` WHERE id_course = '".$order_on['id_course']."'");
+        $id_course = $resC->fetch_assoc();
+        
+        echo '<tr>
+              <td scope="row">'.$id_course['name'].'</td>
+              <td>'.$order_on['city'].'</td>
+              <td>'.$order_on['dates'].'</td>';
 
-           $resC = $mysqli->query("SELECT name FROM `course` WHERE id_course = '".$order_on['id_course']."'");
+        if($order_on['accept'] == 0)
+            echo '<td>Čeká</td>';
+        elseif ($order_on['accept'] == 1)
+            echo '<td>Přijata</td>';
+        else 
+            echo '<td>Odmítnuta</td>';
 
-      	 $id_course = $resC->fetch_assoc();
-
-
-          echo '<tr>
-                   <td scope="row">'.$id_course['name'].'</td>
-                   <td>'.$order_on['city'].'</td>
-                   <td>'.$order_on['dates'].'</td>';
-             
-
-          if($order_on['accept'] == 0)
-             echo '<td>Čeká</td>';
-          elseif ($order_on['accept'] == 1)
-             echo '<td>Přijata</td>';
-          else 
-             echo '<td>Odmítnuta</td>';
-
-          if($order_on['accept'] == 0) //jen pokud se ceka
-          echo '<td>
-          <form action="delete_order.php" method="post" name="delete_order">
-              <input type="hidden"  name="del" value="'.$order_on['id'].'"" />
-              <input type="submit" name="btn_submit_delete_order" value="Smazat" />
-            </form>
-            </td>';
-
-          echo '</tr>';  
-
+        if($order_on['accept'] == 0) //jen pokud se ceka
+        echo '<td>
+              <form action="delete_order.php" method="post" name="delete_order">
+                <input type="hidden"  name="del" value="'.$order_on['id'].'"" />
+                <input type="submit" name="btn_submit_delete_order" value="Smazat" />
+              </form>
+              </td>';
+        echo '</tr>';  
     }
-    // pro uzivatele bych dala nejaky select from course where course.id = listed_course.id_course and listed_course.number_logged < course.max_cap
-
 ?>
 
 <?php

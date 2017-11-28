@@ -38,14 +38,12 @@
                     <input type="text" name="name" required="required"/>
                 </td>
             </tr>
-
             <tr>
                 <td> Lektor: </td>
                 <td>
                     <input type="text" name="lector" required="required" />
                 </td>
             </tr>
-
             <tr>
                 <td> Maximální kapacita: </td>
                 <td>
@@ -76,7 +74,6 @@
                     <textarea cols="30" rows="5" name="information" required=" "></textarea>
                 </td>
             </tr>
-            
             <tr>
                 <td colspan="2">
                     <input type="submit" name="btn_submit_new_course" value="Přidat kurz!" />

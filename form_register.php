@@ -1,9 +1,3 @@
-
-<?php
-/* TODO */
-/* zatim nic */
-?>
-
 <?php
     require_once("header.php");
 ?>
@@ -35,62 +29,59 @@
     // pokud ano - vypisi zprava
     if(!isset($_SESSION["email"]) && !isset($_SESSION["password"])){
 ?>
+
 <div id="form_register">
     <h2>Registrační formulář</h2>
 
     <form action="register.php" method="post" name="form_register" >
         <table>
-            <tr>
-                <td> Jméno: </td>
-                <td>
-                    <input type="text" name="first_name" required="required"/>
-                </td>
+        <tr>
+            <td> Jméno: </td>
+            <td>
+                <input type="text" name="first_name" required="required"/>
+            </td>
             </tr>
-
             <tr>
-                <td> Příjmení: </td>
-                <td>
-                    <input type="text" name="last_name" required="required" />
-                </td>
+            <td> Příjmení: </td>
+            <td>
+                <input type="text" name="last_name" required="required" />
+            </td>
             </tr>
-
             <tr>
-                <td> E-mail: </td>
-                <td>
-                    <input type="email" name="email" required="required" /><br />
-                    <span id="valid_email_message" class="mesage_error"></span>
-                </td>
+            <td> E-mail: </td>
+            <td>
+                <input type="email" name="email" required="required" /><br />
+                <span id="valid_email_message" class="mesage_error"></span>
+            </td>
             </tr>
-
             <tr>
-                <td> Heslo: </td>
-                <td>
-                    <input type="password" name="password" placeholder="min. 6" required="required" /><br />
-                    <span id="valid_password_message" class="mesage_error"></span>
-                </td>
+            <td> Heslo: </td>
+            <td>
+                <input type="password" name="password" placeholder="min. 6" required="required" /><br />
+                <span id="valid_password_message" class="mesage_error"></span>
+            </td>
             </tr>
-            
             <tr>
-                    <input type="checkbox" name="subcheck">Firma<br>
+                <input type="checkbox" name="subcheck">Firma<br>
             </tr>
-            
             <tr>
-                <td colspan="2">
-                    <input type="submit" name="btn_submit_register" value="Registrovat!" />
-                </td>
+            <td colspan="2">
+                <input type="submit" name="btn_submit_register" value="Registrovat!" />
+            </td>
             </tr>
         </table>
     </form>
 </div>
+
 <?php
     }else{
 ?>
-    <div id="authorized">
-        <h2>You are already authorized2</h2>
-    </div>
+<div id="authorized">
+    <h2>You are already authorized2</h2>
+</div>
+
+<?php } ?>
 
 <?php
-    }
-
     require_once("footer.php");
 ?>

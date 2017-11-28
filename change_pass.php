@@ -1,8 +1,6 @@
 <?php
     session_start();
 
-    /* PRIDAT NORMALNI ERROR< POKUD UZIVATEL ZADAL SPATNE PREDCHOZI HESLO*/
-    
     require_once("dbconnect.php");
 
     // Deklarujeme promennou na zpravy chyb
@@ -20,15 +18,13 @@
             $new_password = trim($_POST["new_password"]);
             
             if(!empty($old_password) && !empty($new_password)){
-                    // Pro bezpecnost prevadive do html formatu
-                    $old_password = htmlspecialchars($old_password, ENT_QUOTES);
+                // Pro bezpecnost prevadive do html formatu
+                $old_password = htmlspecialchars($old_password, ENT_QUOTES);
                     
-                    $new_password = htmlspecialchars($new_password, ENT_QUOTES);
-             echo '3';
+                $new_password = htmlspecialchars($new_password, ENT_QUOTES);
             }else{
-                    // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error' >Enter pass</p>";
-              
+                // Pokud se nastala chyba - ukladame to do promenne
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Enter pass</p>";
             }
             
             $email = $_SESSION['email'];
@@ -39,7 +35,6 @@
                 $changes = $mysqli->query("UPDATE `users` SET password='$new_password' WHERE email = '".$email."'");
      
                 // Dotaz na pridani do database
-                
                 if(!$changes){
                     // Pokud se nastala chyba - ukladame to do promenne
                     $_SESSION["error_messages"] .= "<p class='mesage_error' >Error wwith pass changing</p>";

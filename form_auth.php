@@ -1,10 +1,3 @@
-
-<?php
-/* TODO */
-/* nic */
-/* mozna */
-?>
-
 <?php
     require_once("header.php");
 ?>
@@ -40,44 +33,38 @@
     <h2>Přihlášení</h2>
     <form action="auth.php" method="post" name="form_auth" >
         <table>
-
-            <tr>
-                <td> E-mail: </td>
-                <td>
-                    <input type="email" name="email" required="required" /><br />
-                    <span id="valid_email_message" class="mesage_error"></span>
-                </td>
+        <tr>
+            <td> E-mail: </td>
+            <td>
+                <input type="email" name="email" required="required" /><br />
+                <span id="valid_email_message" class="mesage_error"></span>
+            </td>
             </tr>
-
             <tr>
-                <td> Heslo: </td>
-                <td>
-                    <input type="password" name="password" placeholder="min. 6" required="required" /><br />
-                    <span id="valid_password_message" class="mesage_error"></span>
-                </td>
+            <td> Heslo: </td>
+            <td>
+                <input type="password" name="password" placeholder="min. 6" required="required" /><br />
+                <span id="valid_password_message" class="mesage_error"></span>
+            </td>
             </tr>
-
-
             <tr>
                 <td colspan="2">
-                    <input type="submit" name="btn_submit_auth" value="Enter" />
-                </td>
+                <input type="submit" name="btn_submit_auth" value="Enter" />
+            </td>
             </tr>
         </table>
     </form>
 </div>
+
 <?php
     }else{
 ?>
-    <div id="authorized">
-        <h2>You are already authorized1</h2>
-    </div>
+<div id="authorized">
+    <h2>You are already authorized1</h2>
+</div>
+
+<?php } ?>
 
 <?php
-    }
-?>
-
-<?php
-
     require_once("footer.php");
 ?>

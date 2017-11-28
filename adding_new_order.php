@@ -11,7 +11,7 @@
     
     if(isset($_POST["btn_submit_new_order"]) && !empty($_POST["btn_submit_new_order"])){
 
-                // Pokud nekdo zadal mezery na zacatku a konce - smazeme
+        // Pokud nekdo zadal mezery na zacatku a konce - smazeme
         if(isset($_POST["name"])){
 
             // Pokud nekdo zadal mezery na zacatku a konce - smazeme
@@ -44,7 +44,6 @@
             exit();
         }
 
-        ////////////////////////mesto
         if(isset($_POST["city"])){
 
             // Pokud nekdo zadal mezery na zacatku a konce - smazeme
@@ -64,8 +63,6 @@
 
                 exit();
             }
-
-
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
             $_SESSION["error_messages"] .= "<p class='mesage_error'>No city</p>";
@@ -77,7 +74,6 @@
             exit();
         }
 
-            // Pokud nekdo zadal mezery na zacatku a konce - smazeme
         if(isset($_POST["date"])){
 
             // Pokud nekdo zadal mezery na zacatku a konce - smazeme
@@ -97,8 +93,6 @@
 
                 exit();
             }
-
-
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
             $_SESSION["error_messages"] .= "<p class='mesage_error'>No date</p>";
@@ -111,20 +105,15 @@
         }
 
         
-        ///////////////////////////////////
-          
-       ///////////////////////
-       /* SELECT!!!!! */
-       $email = $_SESSION['email'];
+        // Potrebujeme dozvedet id firmy, ktera chce objednat kurs
+        $email = $_SESSION['email'];
         $resultUs = $mysqli->query("SELECT id FROM `users` WHERE email = '".$email."'");
         $user = $resultUs->fetch_assoc();
-        
-       $resC = $mysqli->query("SELECT id_course FROM `course` WHERE name = '".$name."'");
-
-       $id_course = $resC->fetch_assoc();
-
-
-       $result_query_insert = $mysqli->query("INSERT INTO `order` (id_course, id_firm, city, dates) VALUES ('".$id_course['id_course']."', '".$user['id']."', '".$city."', '".$date."')");
+        // Hleddani tabulky objednaneho kurzu
+        $resC = $mysqli->query("SELECT id_course FROM `course` WHERE name = '".$name."'");
+        $id_course = $resC->fetch_assoc();
+        // Pridani obejdnavky do db 
+        $result_query_insert = $mysqli->query("INSERT INTO `order` (id_course, id_firm, city, dates) VALUES ('".$id_course['id_course']."', '".$user['id']."', '".$city."', '".$date."')");
 
         if(!$result_query_insert){
             // Pokud se nastala chyba - ukladame to do promenne
@@ -150,8 +139,6 @@
         // Zavirame database
         $mysqli->close();
     }else{
-
         exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
     }
-
 ?>
