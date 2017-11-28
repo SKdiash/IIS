@@ -45,7 +45,7 @@
                 $log = htmlspecialchars($log, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>Error log on course</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Nezadan kurz, z kterého chcete odhlásit se. Zkuste je¹tì jedno, prosím.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -56,7 +56,7 @@
 
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nezadan kurz, z kterého chcete odhlásit se. Zkuste je¹tì jedno, prosím.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -76,7 +76,7 @@
                 $member = htmlspecialchars($member, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>Error member on course</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Vás id neni zadan. Zkuste je¹tì jedno, prosím.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -87,7 +87,7 @@
 
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>Vás id neni zadan. Zkuste je¹tì jedno, prosím.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -101,7 +101,7 @@
 
         if(!$delete_mem){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Error with logout from course</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pøi odhlá¹ení z kurzu. Zkuste je¹tì jedno, prosím.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -114,7 +114,7 @@
             $log_course = $mysqli->query("UPDATE `listed_course` SET number_logged=number_logged-1 WHERE id = '".$log."'");
             if(!$log_course){
             // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >Error with update listed course</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pøi aktualizace kurzu.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -122,7 +122,7 @@
                 exit();
             }else{
 
-                $_SESSION["success_messages"] = "<p class='success_message'>update complete!!!</p>";
+                $_SESSION["success_messages"] = "<p class='success_message'>Aktualizace probìhla úspì¹nì.</p>";
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
                 header("Location: ".$address_site."/course_on.php");
@@ -137,7 +137,7 @@
         $mysqli->close();
     }
     else{
-        exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
+        exit("<p><strong>Error!</strong> Nacházíte jsi na ¹patnì stránce. Po¾ádáme Vás, abyses vrátili na <a href=".$address_site.">hlavní stránku</a>. Dìkujeme.</p>");
     }
 
 ?>

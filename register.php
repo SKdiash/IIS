@@ -26,7 +26,7 @@
                     $first_name = htmlspecialchars($first_name, ENT_QUOTES);
                 }else{
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Enter your name</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error'>©patnì jste nastavili vlastní jméno. Skuste je¹tì jednou, prosím.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -37,7 +37,7 @@
 
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>©patnì jste nastavili vlastní jméno. Skuste je¹tì jednou, prosím.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -58,7 +58,7 @@
                 }else{
 
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error' >Enter your last name</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error' >©patnì jste nastavili pøíjmení. Skuste je¹tì jednou, prosím.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -70,7 +70,7 @@
             }else{
 
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >No last name</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >©patnì jste nastavili pøíjmení. Skuste je¹tì jednou, prosím.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -96,7 +96,7 @@
                     // Pokud email neodpovida regularnemu vyrazu
                     if( !preg_match($reg_email, $email)){
                         // Pokud se nastala chyba - ukladame to do promenne
-                        $_SESSION["error_messages"] .= "<p class='mesage_error' >Invalid 3 email</p>";
+                        $_SESSION["error_messages"] .= "<p class='mesage_error' >©patnì jste nastavili e-mail. Skuste je¹tì jednou, prosím.</p>";
 
                         // Vraceme uzivateli na hlavni stranku
                         header("HTTP/1.1 301 Moved Permanently");
@@ -114,7 +114,7 @@
                         if(($row = $result_query->fetch_assoc()) != false){
 
                                 // Pokud se nastala chyba - ukladame to do promenne
-                                $_SESSION["error_messages"] .= "<p class='mesage_error' >There is already user with such email</p>";
+                                $_SESSION["error_messages"] .= "<p class='mesage_error' >Úèet se stejném e-mailem ji¾ existuje. Zkuste je¹tì jednou, nebo obra»te se na admina.</p>";
 
                                 // Vraceme uzivateli na hlavni stranku
                                 header("HTTP/1.1 301 Moved Permanently");
@@ -122,7 +122,7 @@
 
                         }else{
                             // Pokud se nastala chyba - ukladame to do promenne
-                            $_SESSION["error_messages"] .= "<p class='mesage_error' >Error db3</p>";
+                            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pøi ukládání informace o úètu.</p>";
 
                             // Vraceme uzivateli na hlavni stranku
                             header("HTTP/1.1 301 Moved Permanently");
@@ -138,7 +138,7 @@
                     $result_query->close();
                 }else{
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error' >Enter email</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error' >©patnì jste nastavili e-mail. Skuste je¹tì jednou, prosím.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -149,7 +149,7 @@
 
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >No 3 Email</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >©patnì jste nastavili e-mail. Skuste je¹tì jednou, prosím.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -170,7 +170,7 @@
 
                 }else{
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error' >Enter pass</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error' >©patnì jste nastavili heslo. Skuste je¹tì jednou, prosím.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -181,7 +181,7 @@
 
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >No pass3</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >©patnì jste nastavili heslo. Skuste je¹tì jednou, prosím.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -190,14 +190,14 @@
                 exit();
             }
             
-            $subcheck = (isset($_POST['subcheck'])) ? 1 : 0;
+            $subcheck = (isset($_POST['subcheck'])) ? 1 : 0;  // Pro rozliseni firmy od jednotlivce
 
             // Dotaz na pridani do database
             $result_query_insert = $mysqli->query("INSERT INTO `users` (first_name, last_name, email, password, firm) VALUES ('".$first_name."', '".$last_name."', '".$email."', '".$password."', '".$subcheck."')");
 
             if(!$result_query_insert){
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error' >Error while adding user3</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pøi ukládání informace o úètu.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -206,7 +206,7 @@
                 exit();
             }else{
 
-                $_SESSION["success_messages"] = "<p class='success_message'>Registration complete!!! <br />Now u can enter website</p>";
+                $_SESSION["success_messages"] = "<p class='success_message'>Registrace probìhla úspì¹nì. <br />Ted mù¾ete pøihlásit se do systému.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -220,7 +220,6 @@
             $mysqli->close();
 
     }else{
-
-        exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
+        exit("<p><strong>Error!</strong> Nacházíte jsi na ¹patnì stránce. Po¾ádáme Vás, abyses vrátili na <a href=".$address_site.">hlavní stránku</a>. Dìkujeme.</p>");
     }
 ?>

@@ -60,7 +60,7 @@
     }else{
 ?>
 <div id="authorized">
-    <h2>You are already authorized1</h2>
+    <h2>Jste již přihlášen do systému.</h2>
 </div>
 
 <?php } ?>

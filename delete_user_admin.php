@@ -46,7 +46,7 @@
                 $usr = htmlspecialchars($usr, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>Error delete course</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Nastala chyba pøi mazání úèastníka.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -57,7 +57,7 @@
 
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1 del</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nastala chyba pøi mazání úèastníka.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -88,7 +88,7 @@
         $delete = $mysqli->query("DELETE FROM `users` WHERE email = '".$usr."'");
         if(!$delete){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Error with delete</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pøi mazání úèastníka.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -97,7 +97,7 @@
             exit();
         }else{
 
-            $_SESSION["success_messages"] = "<p class='success_message'>delete complete!!!</p>";
+            $_SESSION["success_messages"] = "<p class='success_message'>Mazání úèastníka probìhlo úspì¹nì.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -109,8 +109,6 @@
             $mysqli->close();
     }
     else{
-        exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
+        exit("<p><strong>Error!</strong> Nacházíte jsi na ¹patnì stránce. Po¾ádáme Vás, abyses vrátili na <a href=".$address_site.">hlavní stránku</a>. Dìkujeme.</p>");;
     }
-
-
 ?>

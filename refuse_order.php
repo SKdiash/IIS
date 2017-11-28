@@ -45,7 +45,7 @@
                     $refuse = htmlspecialchars($refuse, ENT_QUOTES);
                 }else{
                     // Pokud se nastala chyba - ukladame to do promenne
-                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Error refuse</p>";
+                    $_SESSION["error_messages"] .= "<p class='mesage_error'>Nastala chyba pøi odmítnutí objednávky.</p>";
 
                     // Vraceme uzivateli na hlavni stranku
                     header("HTTP/1.1 301 Moved Permanently");
@@ -55,7 +55,7 @@
                 }
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Nastala chyba pøi odmítnutí objednávky.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");
@@ -68,7 +68,7 @@
 
         if(!$refuse_update){
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error' >Error with refuse</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error' >Nastala chyba pøi odmítnutí objednávky.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -77,7 +77,7 @@
             exit();
         }else{
 
-            $_SESSION["success_messages"] = "<p class='success_message'>refuse complete!!!</p>";
+            $_SESSION["success_messages"] = "<p class='success_message'>Odmítnutí objednávky probìhlo úspì¹nì.</p>";
 
             // Vraceme uzivateli na hlavni stranku
             header("HTTP/1.1 301 Moved Permanently");
@@ -89,7 +89,7 @@
             $mysqli->close();
     }
     else{
-        exit("<p><strong>Error!</strong> Wrong site5 <a href=".$address_site."> main page</a>.</p>");
+        exit("<p><strong>Error!</strong> Nacházíte jsi na ¹patnì stránce. Po¾ádáme Vás, abyses vrátili na <a href=".$address_site.">hlavní stránku</a>. Dìkujeme.</p>");
     }
 
 

@@ -77,7 +77,7 @@
     }else{
 ?>
 <div id="authorized">
-    <h2>You are already authorized2</h2>
+    <h2>Nemůžete vytvořit nový účet, když jste přihlášen. Odhlaste se a zkuste to znova.</h2>
 </div>
 
 <?php } ?>

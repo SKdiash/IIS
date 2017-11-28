@@ -39,7 +39,7 @@
     { 
         if(isset($_POST["course_name"])){
 
-        // Pokud nekdo zadal mezery na zacatku a konce - smazeme
+            // Pokud nekdo zadal mezery na zacatku a konce - smazeme
             $mem = trim($_POST["course_name"]);
 
             // Test zda nemame prazdne pole
@@ -48,12 +48,12 @@
                 $mem = htmlspecialchars($mem, ENT_QUOTES);
             }else{
                 // Pokud se nastala chyba - ukladame to do promenne
-                $_SESSION["error_messages"] .= "<p class='mesage_error'>Error member table</p>";
+                $_SESSION["error_messages"] .= "<p class='mesage_error'>Omlouváme se, ale nastala chyba při zpracování jména kurzu. Zkuste to znovu.</p>";
             }
 
         }else{
             // Pokud se nastala chyba - ukladame to do promenne
-            $_SESSION["error_messages"] .= "<p class='mesage_error'>No name1</p>";
+            $_SESSION["error_messages"] .= "<p class='mesage_error'>Nebylo zadano jméno kurzu, které chcete vyhledat. Zadajte ho, prosím.</p>";
 
         } 
         //konkretni kurz
