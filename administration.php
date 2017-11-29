@@ -31,7 +31,8 @@
 <?php
 
 //tabulka s uzivately
-echo '<table border="1" cellpadding="5" cellspacing="2" summary="Uživatelé" id="Table3">
+echo '<h2>Administrace</h2>
+    <table border="1" cellpadding="5" cellspacing="2" summary="Uživatelé" id="Table3">
    <tbody>
       <tr>
          <th colspan="5" scope="colgroup">Uživatelé</th>
