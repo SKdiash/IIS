@@ -1,100 +1,82 @@
-.clear{
+body {
+    font-family: "Raleway", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-size: 15px;
+    margin: 0;
+    padding: 0;  line-height: 2;
+    color: #444;
+    background: #d2edfa;
+}
+
+.clear {
     clear: both;
 }
 
-.mesage_error{
+.mesage_error {
     color: #cc0000;
 }
 
-.success_message{
+.success_message {
     color: green;
 }   
 
-.block_for_messages{
+.block_for_messages {
     text-align: center;
 }  
+//////////////////////////////////
 
-#header, #footer{
-    border: 2px solid #000;
-}    
-
-#header{
-    padding-left: 10px;
-}
-    /*
-#footer{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-}         */
-
-#header h2, #footer h2{
-    text-align: center;
-    margin: 0;
+#header {
+      
 }
 
-#auth_block{
-    width: 290px;  
-    float: left;    
+#header h2{
+  font-size: 24pt;
+  text-align: center;
 }
 
-#auth_block a{
-
-    display: table;     
-   // float: left;    /*         */
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;  /**/
-    width: 110px;
-    height: 30px;
-    text-decoration: none;
+#header a{
+  float: left;
+  margin-left: 8px;  
+}
+#auth_block, #person_block{
+  float: right;	
+	overflow: hidden; 
+}
+#auth_block a, #person_block a{
+	text-decoration: none;
+}
+#auth_block a:hover, #person_block a:hover{
+  text-decoration: underline;
 }
 
-#auth_block a:hover{
-    text-decoration: underline;   
+#main, #link_info, #person_area, #link_logout, #link_register, 
+#link_auth, #person_info, #course_on, #course_new, #member, #take_order, 
+#economic, #administration, #look_order, #make_order{
+    border: 1px solid black;
+    text-align: center; 
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 5px;
+    padding: 15px; 
+    line-height: 20px;
+    float: left;           
+    overflow: auto;
 }
 
-/*#link_register, #link_info{
-    float: left;
+#content {
+    margin-left: 15px;
+    margin-right: 15px;
 }
-
-#link_auth, #link_logout{
-    float: right;
-}         */
-
-#link_register a, #link_info a{  
-    background: #54d854; 
-    text-align: center;
-}
-
-#link_auth a, #link_logout a, #person_area a, #main a{  
-    background: #4e4eec;
-    text-align: center;
-}
-
 
 #form_register, #form_auth{
-    width: 300px;
-    margin: 0 auto;
-}
+    width: 230px; /* Ширина элемента в пикселах */
+    padding: 10px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+}                                   
 
 
-#authorized h2{
-    text-align: center;
-}
-
-
-/* FOOTER */
-#footer { 
-    text-align: center;
-    background: #419bc4;
+footer{
+  text-align: center;
     position: relative;
     left: 0; bottom: 0;
-    width: 100%;     
-}
-
-#footer p {
-    margin: 0;
-    color: #fff;    
-}
+    width: 100%;
+} 
