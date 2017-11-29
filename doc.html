@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0042)file:///D:/FIT/5.semestr/IIS/doc0/doc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+    
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+
+
+<h1>Firma2 - Informační systém pro Školicí středisko</h1> 
+
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Leonteva Valeriia 
+	    <a href="mailto:xleont01@stud.fit.vutbr.cz">xleont01@stud.fit.vutbr.cz</a> - přihlašování uživatelů, zadávání a správa objednávek
+	</dd>
+	<dd>Macurová Nela <a href="mailto:xmacur07@stud.fit.vutbr.cz">xmacur07@stud.fit.vutbr.cz</a>- databázový subsystém, zadávání nákladů</dd>	
+  <dd>Pirkl Nina 
+	    <a href="mailto:xpirkl03@stud.fit.vutbr.cz">xpirkl03@stud.fit.vutbr.cz</a> - 
+		dokumentace, design systému
+	</dd>
+  
+	<dt>URL aplikace</dt>
+	<dd><a href="http://www.stud.fit.vutbr.cz/~xleont01/IIS">http://www.stud.fit.vutbr.cz/~xleont01/IIS</a></dd>
+	
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+
+<table>
+<tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin@vector.com</td><td>admin123</td><td>Administrátor</td></tr>
+<tr><td>firma@praha.com</td><td>firma123</td><td>Firma</td></tr>
+<tr><td>member@brno.com</td><td>member123</td><td>Jednotlivý účastník</td></tr>
+</tbody></table>
+
+<h2>Implementace</h2>
+
+<table>
+  <tbody>
+  <tr>
+    <td>Soubory</td>
+    <td>Popis</td>
+  </tr><tr>
+    <td>take_order.php<br>accept_order.php<br>refuse_order.php</td>
+    <td>Zobrazení všech objednávek firmy a možnost přijetí nebo odmítnutí objednávky<br></td>
+  </tr>
+  <tr>
+    <td>adding_course_on.php</td>
+    <td> Vypsání nových kurzů pro registraci účastníků.<br></td>
+  </tr>
+  <tr>
+    <td>adding_new_course.php</td>
+    <td> Přidání nového kurzu.<br></td>
+  </tr>
+  <tr>
+    <td>adding_new_order.php</td>
+    <td> Přidání nové objednávky.<br></td>
+  </tr>
+  <tr>
+    <td>administration.php</td>
+    <td> Přehled registrovaných uživatelů - firem a jednotlivců a možnost jejich odebrání.<br></td>
+  </tr>
+  <tr>
+    <td>form_auth.php<br>auth.php<br>logout.php</td>
+    <td>Skripty pro přihlášení a odhlášení ze systému.<br></td>
+  </tr>
+  <tr>
+    <td>change_pass.php</td>
+    <td> Změna hesla.<br></td>
+  </tr>
+  <tr>
+    <td>course_new.php</td>
+    <td>Formulář pro nový kurz.<br></td>
+  </tr>
+  <tr>
+    <td>course_on.php</td>
+    <td> Tabulka probíhajících kurzů.<br></td>
+  </tr>
+  <tr>
+    <td>dbconnect.php</td>
+    <td>Skript pro vytvoření spojení s databází.<br></td>
+  </tr>
+  <tr>
+    <td>delete_course_on.php</td>
+    <td> Mazání probíhajících kurzů pro admina.<br></td>
+  </tr>
+  <tr>
+    <td>delete_order.php</td>
+    <td>Vymazání objednávky pro firmu.<br></td>
+  </tr>
+  <tr>
+    <td>delete_user.php</td>
+    <td> Odstranění uživatele - sám sebe.<br></td>
+  </tr>
+  <tr>
+    <td>delete_user_admin.php</td>
+    <td> Odstranění uživatelů adminem.<br></td>
+  </tr>
+  <tr>
+    <td>economic.php</td>
+    <td> Tabulka příjmů, výdajů a zisků pro admina.<br></td>
+  </tr>
+  <tr>
+    <td>footer.php</td>
+    <td> Uvedení autorů.<br></td>
+  </tr>
+  <tr>
+    <td>form_register.php<br>register.php</td>
+    <td>Registrace nového uživatele.<br></td>
+  </tr>
+  <tr>
+    <td>header.php</td>
+    <td>	Hlavička sdílená všemi uživatelskými stránkami.<br></td>
+  </tr>
+  <tr>
+    <td>index.php</td>
+    <td>Vstupní/hlavní stránka.<br></td>
+  </tr>
+  <tr>
+    <td>kurs_info.php</td>
+    <td>Informace o kurzech.<br></td>
+  </tr>
+  <tr>
+    <td>log_in_course.php</td>
+    <td> Přihlášení uživatele do vypsaných kurzů.<br></td>
+  </tr>
+  <tr>
+    <td>log_out_course.php</td>
+    <td> Odhlášení uživatele z kurzu.<br></td>
+  </tr>
+  <tr>
+    <td>look_order.php</td>
+    <td> Přehled objednávek od firem pro admina.<br></td>
+  </tr>
+  <tr>
+    <td>make_order.php</td>
+    <td> Objednaní kurzů od firmy.<br></td>
+  </tr>
+  <tr>
+    <td>member.php</td>
+    <td> Tlačítka s probíhajícími kurzy, ve kterých jsou registrováni účastníci.<br></td>
+  </tr>
+  <tr>
+    <td>member_table.php</td>
+    <td> Vypsání účastníků u konkrétních kurzů.<br></td>
+  </tr>
+  <tr>
+    <td>person_area.php</td>
+    <td> Přístupy k určitým funkcím pro určité uživatele.<br></td>
+  </tr>
+  <tr>
+    <td>person_info.php</td>
+    <td> Informace o přihlášené osobě.<br></td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<h2>Instalace</h2>
+<ul>
+<li>Instalace probíha překopírovaním souborů na server do cílové složky, změnou konfiguračního souboru <em>dbconnect.php</em>  na správné hodnoty.</li>
+<li>Stránky nevyžadují speciální software a konfigurace na serveru EVA je postačující - PHP 5.3 a MySQL 5.5.</li>
+<li>Databáze se inicializuje skriptem <em>create.sql</em>,  který je možné importovat přes systém phpMyAdmin.</li>
+</ul>
+
+<h2>Známé problémy</h2>
+<p>
+    Model případů užití jsme musely změnit, protože jsme se řídily zjednodušeným zadáním z IIS, tedy Firma pořádající kurzy, oproti zadání z IUS/IDS, kde jsme měly Školicí středisko. Tento model nám sloužil jako inspirace a mnoho případů užití jsme aplikovaly i na nový model. Nový model neobsahuje oproti původnímu entity: Lektor, Místnost, Platba. <br>
+    Databázi jsme také změnily, obsahuje 3 typy uživatelů: Administrátor, Firma a Účastník, kteří jsou uloženi v jedné tabulce. Databáze dále obsahuje Kurzy, Vypsané kurzy, Objednávky a Účast v kurzu. <br>
+
+Při implementaci nebyly využité žádne frameworky a všechna funkcionalita byla vytvořena pomocí jazyků HTML, CSS, PHP, JavaScript a SQL. 
+</p>
+
+</body></html>
