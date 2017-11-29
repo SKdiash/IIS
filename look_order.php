@@ -29,7 +29,8 @@
 <?php
 
 
-echo '<table border="1" cellpadding="5" cellspacing="2" summary="Objednávky" id="Table4">
+echo '<h2>Seznam objednávek</h2>
+      <table border="1" cellpadding="5" cellspacing="2" summary="Objednávky" id="Table4">
       <tbody>
       <tr>
          <th colspan="5" scope="colgroup">Objednávky</th>

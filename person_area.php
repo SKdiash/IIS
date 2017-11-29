@@ -61,7 +61,7 @@
       <div id="person_info">
           <a href="person_info.php">Osobní údaje</a>
       </div>
-      <div id="course_on.php">
+      <div id="course_on">
           <a href="course_on.php">Seznam probíhajících kurzů</a>
       </div>
       <div id="look_order">
@@ -76,6 +76,4 @@
 ?>
 </div>
 
-<?php
-    require_once("footer.php");
-?>
+<div id="content">

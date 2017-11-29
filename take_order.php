@@ -27,7 +27,8 @@
 
 <?php
 //tisknuti tabulky pro objednavky
-echo '<table border="1" cellpadding="7" cellspacing="2" summary="Objednávky" id="Table4">
+echo '<h2>Objednávky</h2>
+    <table border="1" cellpadding="7" cellspacing="2" summary="Objednávky" id="Table4">
    <tbody>
       <tr>
          <th colspan="7" scope="colgroup">Objednávky</th>

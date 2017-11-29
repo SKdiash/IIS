@@ -28,7 +28,7 @@ $_SESSION["access_time"] = time
 <head>
     <title>Vector</title>    
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){

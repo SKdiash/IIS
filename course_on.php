@@ -27,7 +27,8 @@
 ?>
 
 <?php
-    echo '<table border="1" cellpadding="5" cellspacing="2" summary="Probíhající kurzy" id="Table2">
+    echo '<h2>Seznam probíhajících kurzů</h2>
+          <table border="1" cellpadding="5" cellspacing="2" summary="Probíhající kurzy" id="Table2">
           <tbody>
           <tr>
             <th colspan="5" scope="colgroup">Probíhající kurzy</th>
@@ -108,7 +109,6 @@
   if($user['firm'] == 3) //admin
   { ?>
       <div id="adding_course_on">
-          <h2>Přidání nového kurzu</h2>
             <form action="adding_course_on.php" method="post" name="adding_course_on" >
                 <table>
                     <tr>

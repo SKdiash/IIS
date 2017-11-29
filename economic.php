@@ -34,7 +34,8 @@
     $_SESSION["success_messages"] = '';
 
 //vytisteni tabulky probihajicich kurzu
-echo '<table border="1" cellpadding="6" cellspacing="2" summary="Probíhající kurzy" id="Table2">
+echo '<h2>Ekonomická stránka</h2>
+<table border="1" cellpadding="6" cellspacing="2" summary="Probíhající kurzy" id="Table2">
    <tbody>
       <tr>
          <th colspan="6" scope="colgroup">Náklady a zisky</th>

@@ -35,7 +35,7 @@
     $row = $result->fetch_assoc();
         
     echo '
-        <h3>Osobní info:</h3> <p>
+        <h2>Osobní info:</h2> <p>
         E-mail: '.$row['email'].' <br/>
         Jméno: '.$row['first_name'].' <br/>
         Příjmení: '.$row['last_name'].' <br/> </p>';
@@ -59,7 +59,7 @@
     {
 ?>
 
-<form action="delete_user.php" method="post" name="delete_user" onclick="return confirm('Are you sure you want to delete this item?');">
+<form action="delete_user.php" method="post" name="delete_user" onclick="return confirm('Opravdu chcete smazat svuj ucet?');">
     <input type="submit" name="btn_delete_user" value="Smazat uživatele!" />
 </form>
 
@@ -67,7 +67,7 @@
 }
 ?>
 
-<h2>Změna hesla</h2>
+<h2>Změna hesla:</h2>
 <form action="change_pass.php" method="post" name="change_pass" >
 <tr>
 <td> Heslo:</td>
