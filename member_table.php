@@ -27,7 +27,7 @@
     require_once("person_area.php");
 ?>
 
-<h3>Seznam účastníků</h3>
+<h2>Seznam účastníků</h2>
 
 <?php
       

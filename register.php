@@ -206,7 +206,7 @@
                 exit();
             }else{
 
-                $_SESSION["success_messages"] = "<p class='success_message'>Registrace proběhla úspěšně. <br />Ted mù¾ete pøihlásit se do systému.</p>";
+                $_SESSION["success_messages"] = "<p class='success_message'>Registrace proběhla úspěšně. <br />Ted muzete prihlásit se do systému.</p>";
 
                 // Vraceme uzivateli na hlavni stranku
                 header("HTTP/1.1 301 Moved Permanently");

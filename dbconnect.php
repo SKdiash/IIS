@@ -20,5 +20,5 @@
     $mysqli->set_charset('utf8');
 
     // potrebujeme to podeji, aby uzivatel pri chybe mohl se vratit do hlavni stranky
-    $address_site = "http://www.stud.fit.vutbr.cz/~xleont01/";
+    $address_site = "http://www.stud.fit.vutbr.cz/~xleont01/IIS";
 ?>
